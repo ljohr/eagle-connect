@@ -1,0 +1,18 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5% 5%;
+}
+
+.navbar-inner {
+  display: flex;
+  padding: 0;
+}
+
+.navbar-inner li {
+  padding: 0 3%;
+}
+
+.navbar li {
+  list-style: none;
+}

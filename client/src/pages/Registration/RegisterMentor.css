@@ -1,0 +1,51 @@
+.register-mentor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-mentor h1 {
+  padding-bottom: 1.5%;
+}
+
+.register-container {
+  border: 1px solid black;
+  padding: 1.5rem 2rem;
+  border-radius: 0.8rem;
+  width: 50%;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.signup-form .input-container {
+  padding-top: 3%;
+}
+
+.signup-form .input-container:first-child {
+  padding: 0;
+}
+
+.signup-form .input-text,
+.input-select {
+  margin-top: 0.5%;
+  width: 100%;
+  padding: 2%;
+  border-radius: 0.5rem;
+}
+
+.how-to-meet label,
+.meeting-purpose label {
+  margin-left: 1%;
+}
+
+.register-btn {
+  padding: 0.5rem;
+  margin-top: 3%;
+  border-radius: 0.6rem;
+  border: none;
+}
