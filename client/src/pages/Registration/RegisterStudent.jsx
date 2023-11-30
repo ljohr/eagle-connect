@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegisterStudent.css";
 
 const RegisterStudent = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +43,7 @@ const RegisterStudent = () => {
       adviceSelect,
     });
     localStorage.setItem("uid", res.data.studentUID);
+    navigate("/");
     console.log(res);
   };
 

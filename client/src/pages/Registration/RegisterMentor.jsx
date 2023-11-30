@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./RegisterMentor.css";
@@ -16,6 +17,7 @@ const RegisterMentor = () => {
   const [adviceSelect, setAdviceSelect] = useState([]);
 
   const registerMentor = async (e) => {
+    const navigate = useNavigate();
     e.preventDefault();
     try {
       console.log(
@@ -43,6 +45,7 @@ const RegisterMentor = () => {
         adviceSelect,
       });
       localStorage.setItem("uid", res.data.mentorUID);
+      navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 409) {
         toast.error("Email exists!");
