@@ -11,8 +11,7 @@ import RegisterMentor from "./pages/Registration/RegisterMentor";
 import RegisterStudent from "./pages/Registration/RegisterStudent";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import StudentProfile from "./pages/StudentProfile/StudentProfile";
-import MentorProfile from "./pages/MentorProfile/MentorProfile";
+import Profile from "./pages/Profile/Profile.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
 
@@ -65,12 +64,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/studentprofile",
-        element: <StudentProfile />,
-      },
-      {
-        path: "/mentorprofile",
-        element: <MentorProfile />,
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/search",

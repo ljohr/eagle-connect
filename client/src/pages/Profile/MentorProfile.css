@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    gap: 30px;
+    margin-right: 5%;
+    margin-bottom: 1%;
+  }
+  
+  .appoint {
+    padding: .5em 1.5em .5em 1em;
+    background-color: rgb(245, 245, 245);
+    border-radius: 15px;
+  }
+
+  .appoint:hover {
+    background-color: rgb(213, 208, 207);
+  }
+
+  .user, .career, .about {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+  }
+
+  .text {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .user .text, .about .text {
+    text-align: center;
+  }
+
+  .about p {
+    text-align: left;
+    margin: 0 10 0 10;
+  }
+  
+  .user {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  .career {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  
+  .about {
+    grid-column: 1;
+  }
+  
+  img {
+    margin-top: 10px;
+    width: 200px;
+    height: auto;
+  }
+  
+  
