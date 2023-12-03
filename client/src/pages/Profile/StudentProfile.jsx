@@ -9,10 +9,9 @@ const StudentProfile = () => {
   const getData = async (e) => {
     const uid = localStorage.getItem("uid");
     try {
-      const res = await axios.post("/api/mentor/profile", {uid})
-      const data = await response.json();
-      console.log(data);
-      setMentor(data);
+      const res = await axios.post("/api/student/profile", {uid})
+      console.log(res.data);
+      setStudent(data);
     } catch (error) {
       console.log(error)
     }

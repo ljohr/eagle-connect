@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./pages/AuthContext";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Search from "./pages/Search/Search";
+//import Search from "./pages/Search/Search";
 
 axios.defaults.baseURL = "http://localhost:4000";
 
@@ -68,10 +68,10 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
-      {
-        path: "/search",
-        element: <Search />,
-      },
+      // {
+      //   path: "/search",
+      //   element: <Search />,
+      // },
       {
         path: "/mentor/register",
         element: <RegisterMentor />,
