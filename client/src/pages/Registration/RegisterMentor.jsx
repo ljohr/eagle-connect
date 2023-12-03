@@ -15,6 +15,45 @@ const RegisterMentor = () => {
   const [jobTitle, setJobTitle] = useState("swe");
   const [meetSelect, setMeetSelect] = useState([]);
   const [adviceSelect, setAdviceSelect] = useState([]);
+  const [linkedin, setLinkedin] = useState("");
+  const [about, setAbout] = useState("");
+  const [resume, setResume] = useState("");
+  const [highlightExperience, setHighlightExperience] = useState("");
+  const [highlightEducation, setHighlightEducation] = useState("");
+  const [highlights, setHighlights] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [skill, setSkill] = useState("");
+  const [interests, setInterests] = useState([]);
+  const [interest, setInterest] = useState("");
+  const [photo, setPhoto] = useState("");
+
+  const handleAddHighlight = () => {
+    if (highlightExperience && highlightEducation) {
+      setHighlights([
+        highlights,
+        {
+          experience: highlightExperience,
+          education: highlightEducation.split(',').map(item => item.trim()),
+        },
+      ]);
+      setHighlightExperience("");
+      setHighlightEducation("");
+    }
+  };
+
+  const handleAddSkill = () => {
+    if (skill) {
+      setSkills([...skills, ...skill.split(',').map(item => item.trim())]);
+      setSkill("");
+    }
+  };
+  
+  const handleAddInterest = () => {
+    if (interests) {
+      setInterests([...interests, ...interests.split(',').map(item => item.trim())]);
+      setInterest("");
+    }
+  };
 
   const registerMentor = async (e) => {
     const navigate = useNavigate();
@@ -24,18 +63,7 @@ const RegisterMentor = () => {
         name,
         email,
         password,
-        major,
-        region,
-        gradYear,
-        sector,
-        jobTitle,
-        meetSelect,
-        adviceSelect
-      );
-      const res = await axios.post("/api/mentor/register", {
-        name,
-        email,
-        password,
+        photo,
         major,
         region,
         gradYear,
@@ -43,6 +71,31 @@ const RegisterMentor = () => {
         jobTitle,
         meetSelect,
         adviceSelect,
+        linkedin,
+        about,
+        resume,
+        highlights,
+        skills,
+        interests
+      );
+      const res = await axios.post("/api/mentor/register", {
+        name,
+        email,
+        password,
+        photo,
+        major,
+        region,
+        gradYear,
+        sector,
+        jobTitle,
+        meetSelect,
+        adviceSelect,
+        linkedin,
+        about,
+        resume,
+        highlights,
+        skills,
+        interests,
       });
       localStorage.setItem("uid", res.data.mentorUID);
       navigate("/");
@@ -106,6 +159,16 @@ const RegisterMentor = () => {
               className="input-text"
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="input-container">
+            <h5>Profile Picture</h5>
+            <input
+              type="text"
+              value={photo}
+              placeholder="Profile Picture"
+              className="input-text"
+              onChange={(e) => setPhoto(e.target.value)}
             />
           </div>
           <div className="input-container">
@@ -255,6 +318,26 @@ const RegisterMentor = () => {
               />
               <label htmlFor="in-person">In-Person Meeting</label>
             </div>
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="Email"
+                name="interest"
+                value="Email"
+                onChange={handleMethodChange}
+              />
+              <label htmlFor="Email">Email</label>
+            </div>
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="Phone"
+                name="interest"
+                value="Phone"
+                onChange={handleMethodChange}
+              />
+              <label htmlFor="Phone">Phone Call</label>
+            </div>
           </div>
 
           <div className="meeting-purpose input-container">
@@ -299,6 +382,97 @@ const RegisterMentor = () => {
               />
               <label htmlFor="coffee-chat">Coffee Chat</label>
             </div>
+            <div className="input-container">
+              <h5>LinkedIn Profile</h5>
+              <input
+                type="text"
+                value={linkedin}
+                placeholder="LinkedIn URL"
+                className="input-text"
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Resume</h5>
+              <input
+                type="text"
+                value={resume}
+                placeholder="Upload your resume"
+                className="input-text"
+                onChange={(e) => setResume(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>About</h5>
+              <input
+                type="text"
+                value={about}
+                placeholder="Tell us about yourself"
+                className="input-text"
+                onChange={(e) => setAbout(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Highlights</h5>
+              <input
+                type="text"
+                value={highlightExperience}
+                placeholder="Experience"
+                className="input-text"
+                onChange={(e) => setHighlightExperience(e.target.value)}
+              />
+              <input
+                type="text"
+                value={highlightEducation}
+                placeholder="Education (comma-separated)"
+                className="input-text"
+                onChange={(e) => setHighlightEducation(e.target.value)}
+              />
+
+              <ul>
+                {highlights.map((highlight, index) => (
+                  <li key={index}>
+                    <strong> Experience:</strong> {highlight.experience}, 
+                    <strong> Education:</strong> {highlight.education.join(', ')}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          <div className="input-container">
+            <h5>Skills</h5>
+              <input
+                type="text"
+                value={skill}
+                placeholder="Skills (comma-separated)"
+                className="input-text"
+                onChange={(e) => setSkill(e.target.value)}
+                onBlur={handleAddSkill}
+              />
+            <ul>
+              {skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="input-container">
+            <h5>Interests</h5>
+              <input
+                type="text"
+                value={interests}
+                placeholder="Interests (comma-separated)"
+                className="input-text"
+                onChange={(e) => setInterest(e.target.value)}
+                onBlur={handleAddInterest}
+              />
+            <ul>
+              {interests.map((interest, index) => (
+                <li key={index}>{interest}</li>
+              ))}
+            </ul>
+          </div>
+
           </div>
           <button className="register-btn" type="submit">
             Sign Up
