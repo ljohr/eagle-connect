@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
+import "./App.css";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Registration/Login";
@@ -9,20 +10,17 @@ import LoginMentor from "./pages/Registration/LoginMentor";
 import Register from "./pages/Registration/Register";
 import RegisterMentor from "./pages/Registration/RegisterMentor";
 import RegisterStudent from "./pages/Registration/RegisterStudent";
-import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./pages/AuthContext";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
+import BookMeeting from "./pages/BookMeeting/BookMeeting";
 
 axios.defaults.baseURL = "http://localhost:4000";
 
 const LayOut = () => {
   return (
-    // <h1>hi</h1>
-    // <UserProvider>
-    //   <ToastContainer />
     <>
       <header>
         <Navbar />
@@ -30,8 +28,6 @@ const LayOut = () => {
       <Outlet />
       <ToastContainer />
     </>
-    //   <Footer />
-    // </UserProvider>
   );
 };
 
@@ -79,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/student/register",
         element: <RegisterStudent />,
+      },
+      {
+        path: "/mentor/book",
+        element: <BookMeeting />,
       },
     ],
   },

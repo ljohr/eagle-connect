@@ -7,6 +7,7 @@ const Hero = () => {
     <div className="hero">
       <img className="hero-img" src={eagleEarthLink} alt="Profile" />
       <h1>Eagle Connect</h1>
+      <h3>Networking opportunities with </h3>
       <div className="login-container">
         <button>
           <Link to="/mentor/login">Login as a Mentor</Link>
@@ -23,7 +24,10 @@ const Info = () => {
   return (
     <div className="info">
       <h2>What is Eagle Connect?</h2>
-      <p>Eagle Connect is an application made for BC students to </p>
+      <p>
+        Eagle Connect is an application made for BC students to help their job
+        application process{" "}
+      </p>
     </div>
   );
 };
