@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
-import StudentSearch from "./StudentSearch.jsx";
-import MentorSearch from "./MentorSearch.jsx";
+import Search_student from "./Search_student.jsx";
+import Search_mentor from "./Search_mentor.jsx";
 
 const Search = () => {
   const { isStudent } = useContext(AuthContext);
-  return <>{isStudent ? <StudentSearch /> : <MentorSearch />}</>;
+  return <>{isStudent ? <Search_student /> : <Search_mentor />}</>;
 };
 
 export default Search;
