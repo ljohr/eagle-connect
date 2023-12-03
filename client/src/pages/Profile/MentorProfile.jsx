@@ -25,22 +25,22 @@ const MentorProfile = () => {
 
   const renderUser = (data) => (
     <div className="user">
-    <div className="text">
-      <img src={data.photo} alt="alumni-photo" />
-      <h1>{data.name}</h1>
-      <h3>
-        <a href={`mailto:${data.email}`}>{data.email}</a>
-      </h3>
-      <h3>
-        <a href={data.linkedin}>{data.linkedin}</a>
-      </h3>
-      <h3>
-        <a href={data.resume}>{data.resume}</a>
-      </h3>
-      <h3 className="appoint">
-        <a href="#">Make an Appointment</a>
-      </h3>
-    </div>
+      <div className="text">
+        <img src={data.photo} alt="alumni-photo" />
+        <h1>{data.name}</h1>
+        <h3>
+          <a href={`mailto:${data.email}`}>{data.email}</a>
+        </h3>
+        <h3>
+          <a href={data.linkedin}>{data.linkedin}</a>
+        </h3>
+        <h3>
+          <a href={data.resume}>{data.resume}</a>
+        </h3>
+        <h3 className="appoint">
+          <a href="#">Make an Appointment</a>
+        </h3>
+      </div>
     </div>
   );
 
@@ -60,7 +60,6 @@ const MentorProfile = () => {
     const interestsListItems = bulletPoints(data.interests);
   
     return (
-
     <div className="career">
       <div className="text">
         <h2>Education:</h2>

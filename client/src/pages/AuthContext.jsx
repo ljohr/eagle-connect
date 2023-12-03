@@ -1,22 +1,38 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isStudent, setIsStudent] = useState(false);
+  // Initialize state based on localStorage
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("uid") ? true : false);
+  const [isStudent, setIsStudent] = useState(localStorage.getItem("studentStatus") === "true");
+
+  useEffect(() => {
+    // Update isLoggedIn and isStudent state if localStorage changes
+    const handleStorageChange = () => {
+      setIsLoggedIn(localStorage.getItem("uid") ? true : false);
+      setIsStudent(localStorage.getItem("studentStatus") === "true");
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const login = (uid, studentStatus) => {
-    if (studentStatus) {
-      setIsStudent(true);
-    }
     localStorage.setItem("uid", uid);
+    localStorage.setItem("studentStatus", studentStatus);
     setIsLoggedIn(true);
+    setIsStudent(studentStatus);
   };
 
   const logout = () => {
     localStorage.removeItem("uid");
+    localStorage.removeItem("studentStatus");
     setIsLoggedIn(false);
+    setIsStudent(false);
   };
 
   return (

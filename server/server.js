@@ -176,6 +176,17 @@ app.post("/api/mentor/profile", async (req, res, next) => {
   }
 });
 
+app.post("/api/student/profile", async (req, res, next) => {
+  try {
+    const data = req.body;
+    const student = await StudentModel.findOne({ _id: data.uid });
+    console.log("hi from server", student);
+    res.json({ student });
+  } catch (error) {
+    return res.status(400).json({ message: "Student Profile not found." });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
