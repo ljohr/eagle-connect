@@ -141,11 +141,23 @@ app.post("/api/student/login", async (req, res, next) => {
     return res.status(400).json({ message: "User not found." });
   }
 });
+
 app.post("/api/mentor/login", async (req, res, next) => {
   try {
     const data = req.body;
     const mentor = await MentorModel.findOne({ email: data.email });
     res.json({ mentorUID: mentor._id });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor not found." });
+  }
+});
+
+app.post("/mentor/book", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log(data);
+    const mentor = await MentorModel.findOne({ name: data.name });
+    res.json({ mentor });
   } catch (error) {
     return res.status(400).json({ message: "Mentor not found." });
   }
