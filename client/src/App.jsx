@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Registration/Login";
 import LoginStudent from "./pages/Registration/LoginStudent";
