@@ -165,6 +165,17 @@ app.post("/api/mentor/login", async (req, res, next) => {
   }
 });
 
+app.post("/api/mentor/profile"), async(req, res, next) => {
+  try {
+    const data = req.body;
+    const mentor = await MentorModel.findOne({ _id: data.uid });
+    res.json({ mentor });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor Profile not found." });
+  }
+}
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
