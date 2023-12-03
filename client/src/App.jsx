@@ -13,7 +13,8 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Search from "./pages/Search/Search";
+import Search_student from "./pages/Search/Search_student";
+import Search_mentor from "./pages/Search/Search_mentor";
 
 axios.defaults.baseURL = "http://localhost:4000";
 
@@ -68,8 +69,12 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "/search",
-        element: <Search />,
+        path: "/search_student",
+        element: <Search_student />,
+      },
+      {
+        path: "/search_mentor",
+        element: <Search_mentor />,
       },
       {
         path: "/mentor/register",
