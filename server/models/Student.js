@@ -14,6 +14,8 @@ const StudentSchema = new Schema({
   meetingMethod: {
     zoom: { type: Boolean, default: false },
     inPerson: { type: Boolean, default: false },
+    Email: { type: Boolean, default: false },
+    Phone: { type: Boolean, default: false },
   },
   helpType: {
     generalCareer: { type: Boolean, default: false },
@@ -24,7 +26,6 @@ const StudentSchema = new Schema({
   linkedin: String,
   about: String,
   resume: String,
-  meeting: [String],
   aspirations: String,
   skills: [String],
   interests: [String],

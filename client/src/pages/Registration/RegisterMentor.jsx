@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "./RegisterMentor.css";
 
 const RegisterMentor = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,26 +19,18 @@ const RegisterMentor = () => {
   const [linkedin, setLinkedin] = useState("");
   const [about, setAbout] = useState("");
   const [resume, setResume] = useState("");
-  const [highlightExperience, setHighlightExperience] = useState("");
-  const [highlightEducation, setHighlightEducation] = useState("");
-  const [highlights, setHighlights] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [education, setEducation] = useState([]);
   const [skills, setSkills] = useState([]);
   const [skill, setSkill] = useState("");
   const [interests, setInterests] = useState([]);
   const [interest, setInterest] = useState("");
   const [photo, setPhoto] = useState("");
 
-  const handleAddHighlight = () => {
-    if (highlightExperience && highlightEducation) {
-      setHighlights([
-        highlights,
-        {
-          experience: highlightExperience,
-          education: highlightEducation.split(',').map(item => item.trim()),
-        },
-      ]);
-      setHighlightExperience("");
-      setHighlightEducation("");
+  const handleEducation = () => {
+    if (education) {
+      setEducations([...educations, ...education.split(',').map(item => item.trim())]);
+      setEducation("");
     }
   };
 
@@ -49,14 +42,14 @@ const RegisterMentor = () => {
   };
   
   const handleAddInterest = () => {
-    if (interests) {
-      setInterests([...interests, ...interests.split(',').map(item => item.trim())]);
+    if (interest) {
+      setInterests([...interests, ...interest.split(',').map(item => item.trim())]);
       setInterest("");
     }
   };
 
   const registerMentor = async (e) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     e.preventDefault();
     try {
       console.log(
@@ -74,7 +67,7 @@ const RegisterMentor = () => {
         linkedin,
         about,
         resume,
-        highlights,
+        educations,
         skills,
         interests
       );
@@ -93,7 +86,7 @@ const RegisterMentor = () => {
         linkedin,
         about,
         resume,
-        highlights,
+        educations,
         skills,
         interests,
       });
@@ -413,28 +406,19 @@ const RegisterMentor = () => {
               />
             </div>
             <div className="input-container">
-              <h5>Highlights</h5>
+              <h5>Education</h5>
               <input
                 type="text"
-                value={highlightExperience}
-                placeholder="Experience"
-                className="input-text"
-                onChange={(e) => setHighlightExperience(e.target.value)}
-              />
-              <input
-                type="text"
-                value={highlightEducation}
+                value={education}
                 placeholder="Education (comma-separated)"
                 className="input-text"
-                onChange={(e) => setHighlightEducation(e.target.value)}
+                onChange={(e) => setEducation(e.target.value)}
+                onBlur={handleEducation}
               />
 
               <ul>
-                {highlights.map((highlight, index) => (
-                  <li key={index}>
-                    <strong> Experience:</strong> {highlight.experience}, 
-                    <strong> Education:</strong> {highlight.education.join(', ')}
-                  </li>
+                {educations.map((education, index) => (
+                  <li key={index}>{education}</li>
                 ))}
               </ul>
             </div>
@@ -460,7 +444,7 @@ const RegisterMentor = () => {
             <h5>Interests</h5>
               <input
                 type="text"
-                value={interests}
+                value={interest}
                 placeholder="Interests (comma-separated)"
                 className="input-text"
                 onChange={(e) => setInterest(e.target.value)}

@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const MentorSchema = new Schema({
   name: String,
-  email: { type: String, unique: true, match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email address'] },
+  email: { type: String, unique: true},
   password: String,
   photo: String,
   major: String,
@@ -14,7 +14,7 @@ const MentorSchema = new Schema({
   linkedin: String,
   about: String,
   resume: String,
-  highlights: [String],
+  educations: [String],
   skills: [String],
   interests: [String],
 
