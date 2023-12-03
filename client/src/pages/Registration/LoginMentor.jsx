@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../AuthContext";
 import axios from "axios";
 import "./Login.css";
 
 const LoginMentor = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +20,7 @@ const LoginMentor = () => {
         password,
       });
       console.log(res);
-      localStorage.setItem("uid", res.data.mentorUID);
+      login(res.data.mentorUID, false);
       navigate("/");
     } catch (error) {
       console.log(error);

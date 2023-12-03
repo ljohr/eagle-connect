@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../pages/AuthContext";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const uid = localStorage.getItem("uid");
-    if (uid) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   const logoutHandler = () => {
-    localStorage.removeItem("uid");
-    setIsLoggedIn(false);
+    logout();
   };
 
   return (

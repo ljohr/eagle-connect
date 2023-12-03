@@ -11,6 +11,7 @@ import RegisterMentor from "./pages/Registration/RegisterMentor";
 import RegisterStudent from "./pages/Registration/RegisterStudent";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthProvider } from "./pages/AuthContext";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
@@ -85,9 +86,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </>
+    </AuthProvider>
   );
 };
 

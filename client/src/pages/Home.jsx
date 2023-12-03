@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <main>
-      <h1>Home page</h1>
+      <img src="../assets/eagle-shield.svg" alt="" />
+      <h1>Eagle Connect</h1>
       <button>
         <Link to="/mentor/login">Login as a Mentor</Link>
       </button>
