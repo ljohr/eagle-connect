@@ -101,6 +101,11 @@ const Search_mentor = () => {
                       <div className="bubble">{user.region}</div>
                       <div className="bubble">{user.help}</div>
                       <div className="bubble">{user.meet_type}</div>
+                      <div className=" booking-link">
+                        <Link to={`/book/student/${user.name}`}>
+                          Book a Meeting
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

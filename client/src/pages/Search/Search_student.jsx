@@ -131,6 +131,7 @@ const Search_student = () => {
                   <div className="bubble">New York, NY</div>
                   <div className="bubble">Resume Review</div>
                   <div className="bubble">Coffee Chats</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -154,6 +155,7 @@ const Search_student = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">Interview Advice</div>
                   <div className="bubble">Mock Interview</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -178,6 +180,7 @@ const Search_student = () => {
                   <div className="bubble">General Advice</div>
                   <div className="bubble">Coffee Chats</div>
                   <div className="bubble">Phone</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
