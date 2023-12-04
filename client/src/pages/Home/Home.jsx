@@ -7,8 +7,10 @@ const Hero = () => {
     <div className="hero">
       <img className="hero-img" src={eagleEarthLink} alt="Profile" />
       <h1>Eagle Connect</h1>
+
       <h3>Your Ultimate BC Networking Companion </h3>
       <div className="login-container">
+
         <button>
           <Link to="/mentor/login">Login as a Mentor</Link>
         </button>
