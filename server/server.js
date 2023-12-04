@@ -150,6 +150,30 @@ app.post("/api/mentor/login", async (req, res, next) => {
     return res.status(400).json({ message: "Mentor not found." });
   }
 });
+app.post("/api/search", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log(data);
+    const student = await StudentModel.find({ major: data.major, sector: data.sector, meet_type: data.meet_type });
+    res.json({ student });
+  }
+  catch (error) {
+    return res.status(400).json({ message: "User not found." });
+  }
+});
+
+app.post("/api/student_search", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log(data);
+    const mentor = await MentorModel.find({ major: data.major, sector: data.sector, meet_type: data.meet_type });
+    res.json({ mentor });
+  }
+  catch (error) {
+    return res.status(400).json({ message: "User not found." });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

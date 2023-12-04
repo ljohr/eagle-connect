@@ -16,6 +16,12 @@ import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
 
+// angela testing 
+
+import Search_student from "./pages/Search/Search_student";
+import Search_mentor from "./pages/Search/Search_mentor";
+
+
 axios.defaults.baseURL = "http://localhost:4000";
 
 const LayOut = () => {
@@ -71,6 +77,14 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/search_student",
+        element: <Search_student />,
+      },
+      {
+        path: "/search_mentor",
+        element: <Search_mentor />,
       },
       {
         path: "/mentor/register",
