@@ -26,27 +26,23 @@
   padding-bottom: 2%;
 }
 
-.button {
+.register-main button{
   display: block;
   background-color: #fff;
   color: #6d0000;
   text-align: center;
   margin: 10px auto;
+  margin-bottom: 10px;
   padding: 15px 20px;
   border-radius: 5px;
   text-decoration: none;
-  width: 200px;
+  width: 250px;
   transition:
     background-color 0.3s,
     color 0.3s;
 }
 
-.student-button:hover {
-  background-color: #6d0000;
-  color: #fff;
-}
-
-.admin-button:hover {
+button:hover {
   background-color: #6d0000;
   color: #fff;
 }
