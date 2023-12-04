@@ -228,6 +228,17 @@ app.post("/api/book/mentor/", async (req, res, next) => {
   }
 });
 
+app.post("/api/book/student/", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log("data", data);
+    const student = await StudentModel.findOne({ name: data.name });
+    res.json({ student });
+  } catch (error) {
+    return res.status(400).json({ message: "Student not found." });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

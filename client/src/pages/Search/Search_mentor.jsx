@@ -90,7 +90,7 @@ const Search_mentor = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/mentor/${user.name}`}>{user.name}</Link>
+                    <Link to={`/book/student/${user.name}`}>{user.name}</Link>
                   </h2>
                   <p>
                     Major: {user.major} | Graduation Year: {user.gradYear}
@@ -101,11 +101,6 @@ const Search_mentor = () => {
                       <div className="bubble">{user.region}</div>
                       <div className="bubble">{user.help}</div>
                       <div className="bubble">{user.meet_type}</div>
-                      <div className=" booking-link">
-                        <Link to={`/book/student/${user.name}`}>
-                          Book a Meeting
-                        </Link>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -132,6 +127,7 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">General Discussion</div>
                   <div className="bubble">Coffee Chats</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -155,6 +151,7 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">Interview Advice</div>
                   <div className="bubble">Mock Interview</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -179,6 +176,7 @@ const Search_mentor = () => {
                   <div className="bubble">General Advice</div>
                   <div className="bubble">Zoom</div>
                   <div className="bubble">Phone</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
