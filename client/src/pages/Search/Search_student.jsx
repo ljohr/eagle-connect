@@ -1,6 +1,28 @@
 import React from 'react';
 import './Search_student.css'; 
 const Search_student = () => {
+  const [major, setMajor] = useState("Math");
+  const [sector, setSector] = useState("Software Engineer");
+  const [meet_type, setType] = useState("Zoom");
+  const [users, setUsers] = useState([]);
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    console.log(major, sector, meet_type);
+    try{
+      const res = await axios.post("/api/student_search", {
+        major: major,
+        sector: sector,
+        meet_type: meet_type
+      });
+      console.log(res.data.mentor);
+      setUsers(res.data.mentor);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+ 
+
   return (
     <main className='student-search'>
       <section id="search">
