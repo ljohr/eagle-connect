@@ -24,14 +24,13 @@
   
   .login-main h2 {
     margin-bottom: 20px;
-    color: #6d0000;
+    color: rgb(30, 48, 80);
     padding-bottom: 2%;
   }
   
   .login-main button {
     display: block;
     background-color: #fff;
-    color: #6d0000;
     text-align: center;
     margin: 10px auto;
     margin-bottom: 10px;
@@ -43,7 +42,7 @@
   }
   
   button:hover {
-    background-color: #6d0000;
+    background-color: rgb(30, 48, 80);
     color: white;
   }
   
