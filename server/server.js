@@ -19,6 +19,17 @@ app.use(
 
 connectDB();
 
+const nameFromSlug = (slug) => {
+  return slug.split("-").join(" ");
+};
+
+const makeTitleCase = (str) => {
+  return str.replace(
+    /\w\S*/g,
+    (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  );
+};
+
 app.post("/api/student/register", async (req, res, next) => {
   try {
     const data = req.body;
@@ -221,7 +232,9 @@ app.post("/api/book/mentor/", async (req, res, next) => {
   try {
     const data = req.body;
     console.log("data", data);
-    const mentor = await MentorModel.findOne({ name: data.name });
+    const mentor = await MentorModel.findOne({
+      name: makeTitleCase(nameFromSlug(data.name)),
+    });
     res.json({ mentor });
   } catch (error) {
     return res.status(400).json({ message: "Mentor not found." });
@@ -232,7 +245,10 @@ app.post("/api/book/student/", async (req, res, next) => {
   try {
     const data = req.body;
     console.log("data", data);
-    const student = await StudentModel.findOne({ name: data.name });
+    const student = await StudentModel.findOne({
+      name: makeTitleCase(nameFromSlug(data.name)),
+    });
+    console.log("student", student);
     res.json({ student });
   } catch (error) {
     return res.status(400).json({ message: "Student not found." });

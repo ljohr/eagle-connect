@@ -4,6 +4,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./Search_student.css";
 import axios from "axios";
 
+const nameToSlug = (name) => {
+  return name.toLowerCase().split(" ").join("-");
+};
+
 const Search_student = () => {
   const [major, setMajor] = useState("Math");
   const [sector, setSector] = useState("Software Engineer");
@@ -90,7 +94,9 @@ const Search_student = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/mentor/${user.name}`}>{user.name}</Link>
+                    <Link to={`/book/mentor/${nameToSlug(user.name)}`}>
+                      {user.name}
+                    </Link>
                   </h2>
                   <p>
                     {user.sector} | Major: {user.major}{" "}

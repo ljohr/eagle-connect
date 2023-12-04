@@ -4,6 +4,10 @@ import "./Search_mentor.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const nameToSlug = (name) => {
+  return name.toLowerCase().split(" ").join("-");
+};
+
 const Search_mentor = () => {
   const [major, setMajor] = useState("Math");
   const [sector, setSector] = useState("Software Engineer");
@@ -90,7 +94,9 @@ const Search_mentor = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/student/${user.name}`}>{user.name}</Link>
+                    <Link to={`/book/student/${nameToSlug(user.name)}`}>
+                      {user.name}
+                    </Link>
                   </h2>
                   <p>
                     Major: {user.major} | Graduation Year: {user.gradYear}

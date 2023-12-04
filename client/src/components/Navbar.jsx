@@ -3,6 +3,45 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../pages/AuthContext";
 import "./Navbar.css";
 
+const renderLoggedInMain = () => {
+  return (
+    <>
+      <li>
+        <Link to="/profile" className="nav-item">
+          Profile
+        </Link>
+      </li>
+      <li>
+        <Link to="/dashboard" className="nav-item">
+          Dashboard
+        </Link>
+      </li>
+      <li>
+        <Link to="/search" className="nav-item">
+          Search
+        </Link>
+      </li>
+    </>
+  );
+};
+
+const renderRegisterLogin = () => {
+  return (
+    <>
+      <li>
+        <Link to="/register" className="nav-item">
+          Register
+        </Link>
+      </li>
+      <li>
+        <Link to="/login" className="nav-item">
+          Login
+        </Link>
+      </li>
+    </>
+  );
+};
+
 const Navbar = () => {
   const { isLoggedIn, logout } = useContext(AuthContext);
 
@@ -18,37 +57,10 @@ const Navbar = () => {
             Home
           </Link>
         </li>
-        <li>
-          <Link to="/dashboard" className="nav-item">
-            Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link to="/profile" className="nav-item">
-            Profile
-          </Link>
-        </li>
-        <li>
-          <Link to="/search" className="nav-item">
-            Search
-          </Link>
-        </li>
+        {isLoggedIn && renderLoggedInMain()}
       </ul>
       <ul className="navbar-inner login-register">
-        {!isLoggedIn && (
-          <li>
-            <Link to="/register" className="nav-item">
-              Register
-            </Link>
-          </li>
-        )}
-        {!isLoggedIn && (
-          <li>
-            <Link to="/login" className="nav-item">
-              Login
-            </Link>
-          </li>
-        )}
+        {!isLoggedIn && renderRegisterLogin()}
         {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
       </ul>
     </nav>
