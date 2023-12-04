@@ -13,22 +13,22 @@
   max-width: 30%;
 }
 
-.login-container {
+.home-login-container {
   display: flex;
   padding: 2% 0;
 }
 
-.login-container button {
+.home-login-container button {
   padding: 3.5% 0;
   width: 12rem;
   background-color: rgb(30, 48, 80);
 }
 
-.login-container button:first-child {
+.home-login-container button:first-child {
   margin-right: 1%;
 }
 
-.login-container button a {
+.home-login-container button a {
   font-weight: 600;
   color: #ffffff;
 }

@@ -8,7 +8,7 @@ const Hero = () => {
       <img className="hero-img" src={eagleEarthLink} alt="Profile" />
       <h1>Eagle Connect</h1>
       <h3>Networking opportunities with </h3>
-      <div className="login-container">
+      <div className="home-login-container">
         <button>
           <Link to="/mentor/login">Login as a Mentor</Link>
         </button>
