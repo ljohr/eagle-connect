@@ -32,3 +32,48 @@
   font-weight: 600;
   color: #ffffff;
 }
+
+.info{
+  padding: 10px;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-wrapper {
+  text-align: center;
+}
+
+.circle-box {
+  width: 200px;
+  height: 200px;
+  background-color:  #f8f8f8; /* Example background color */
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.circle-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.image-caption {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* In styles.css */
+
+.how-to-join {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  background-color: #f8f8f8;
+  border-radius: 20px; 
+}
