@@ -15,6 +15,29 @@ const RegisterStudent = () => {
   const [jobTitle, setJobTitle] = useState("swe");
   const [meetSelect, setMeetSelect] = useState(["zoom"]);
   const [adviceSelect, setAdviceSelect] = useState(["generalAdvice"]);
+  const [linkedin, setLinkedin] = useState("");
+  const [about, setAbout] = useState("");
+  const [resume, setResume] = useState("");
+  const [aspirations, setAspirations] = useState("");
+  const [skills, setSkills] = useState([]);
+  const [skill, setSkill] = useState("");
+  const [interests, setInterests] = useState([]);
+  const [interest, setInterest] = useState("");
+  const [photo, setPhoto] = useState("");
+
+  const handleAddSkill = () => {
+    if (skill) {
+      setSkills([...skills, ...skill.split(',').map(item => item.trim())]);
+      setSkill("");
+    }
+  };
+  
+  const handleAddInterest = () => {
+    if (interest) {
+      setInterests([...interests, ...interest.split(',').map(item => item.trim())]);
+      setInterest("");
+    }
+  };
 
   const registerStudent = async (e) => {
     e.preventDefault();
@@ -22,18 +45,7 @@ const RegisterStudent = () => {
       name,
       email,
       password,
-      major,
-      region,
-      gradYear,
-      sector,
-      jobTitle,
-      meetSelect,
-      adviceSelect
-    );
-    const res = await axios.post("/api/student/register", {
-      name,
-      email,
-      password,
+      photo,
       major,
       region,
       gradYear,
@@ -41,6 +53,31 @@ const RegisterStudent = () => {
       jobTitle,
       meetSelect,
       adviceSelect,
+      linkedin,
+      about,
+      resume,
+      aspirations,
+      skills,
+      interests
+    );
+    const res = await axios.post("/api/student/register", {
+      name,
+      email,
+      password,
+      major,
+      photo,
+      region,
+      gradYear,
+      sector,
+      jobTitle,
+      meetSelect,
+      adviceSelect,
+      linkedin,
+      about,
+      resume,
+      aspirations,
+      skills,
+      interests
     });
     localStorage.setItem("uid", res.data.studentUID);
     navigate("/");
@@ -100,6 +137,16 @@ const RegisterStudent = () => {
               className="input-text"
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="input-container">
+            <h5>Profile Picture</h5>
+            <input
+              type="text"
+              value={photo}
+              placeholder="Profile Picture"
+              className="input-text"
+              onChange={(e) => setPhoto(e.target.value)}
             />
           </div>
           <div className="input-container">
@@ -236,6 +283,26 @@ const RegisterStudent = () => {
                 onChange={handleMethodChange}
               />
               <label htmlFor="in-person">In-Person Meeting</label>
+              <div className="checkbox-container">
+                <input
+                  type="checkbox"
+                  id="Email"
+                  name="interest"
+                  value="Email"
+                  onChange={handleMethodChange}
+                />
+                <label htmlFor="Email">Email</label>
+              </div>
+              <div className="checkbox-container">
+                <input
+                  type="checkbox"
+                  id="Phone"
+                  name="interest"
+                  value="Phone"
+                  onChange={handleMethodChange}
+                />
+                <label htmlFor="Phone">Phone Call</label>
+              </div>
             </div>
           </div>
 
@@ -281,6 +348,78 @@ const RegisterStudent = () => {
               />
               <label htmlFor="coffee-chat">Coffee Chat</label>
             </div>
+          </div>
+          <div className="input-container">
+              <h5>LinkedIn Profile</h5>
+              <input
+                type="text"
+                value={linkedin}
+                placeholder="LinkedIn URL"
+                className="input-text"
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Resume</h5>
+              <input
+                type="text"
+                value={resume}
+                placeholder="Upload your resume"
+                className="input-text"
+                onChange={(e) => setResume(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>About</h5>
+              <input
+                type="text"
+                value={about}
+                placeholder="Tell us about yourself"
+                className="input-text"
+                onChange={(e) => setAbout(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Aspirations</h5>
+              <input
+                type="text"
+                value={aspirations}
+                placeholder="Tell us about your goals"
+                className="input-text"
+                onChange={(e) => setAspirations(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+            <h5>Skills</h5>
+              <input
+                type="text"
+                value={skill}
+                placeholder="Skills (comma-separated)"
+                className="input-text"
+                onChange={(e) => setSkill(e.target.value)}
+                onBlur={handleAddSkill}
+              />
+            <ul>
+              {skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="input-container">
+            <h5>Interests</h5>
+              <input
+                type="text"
+                value={interest}
+                placeholder="Interests (comma-separated)"
+                className="input-text"
+                onChange={(e) => setInterest(e.target.value)}
+                onBlur={handleAddInterest}
+              />
+            <ul>
+              {interests.map((interest, index) => (
+                <li key={index}>{interest}</li>
+              ))}
+            </ul>
           </div>
           <button className="register-btn" type="submit">
             Sign Up
