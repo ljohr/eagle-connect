@@ -33,7 +33,7 @@
   color: #ffffff;
 }
 
-.info{
+.home-info {
   padding: 10px;
   text-align: center;
 }
@@ -51,7 +51,7 @@
 .circle-box {
   width: 200px;
   height: 200px;
-  background-color:  #f8f8f8; /* Example background color */
+  background-color: #f8f8f8; /* Example background color */
   border-radius: 50%;
   overflow: hidden;
   display: inline-block;
@@ -75,5 +75,5 @@
   padding: 20px;
   margin: 10px;
   background-color: #f8f8f8;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
