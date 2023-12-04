@@ -71,7 +71,7 @@ app.post("/api/student/register", async (req, res, next) => {
         resume: data.resume,
         aspiration: data.aspiration,
         skills: data.skills,
-        interests: data.interests
+        interests: data.interests,
       });
       await student.save();
     }
@@ -135,7 +135,7 @@ app.post("/api/mentor/register", async (req, res, next) => {
         resume: data.resume,
         educations: data.educations,
         skills: data.skills,
-        interests: data.interests
+        interests: data.interests,
       });
       await mentor.save();
     }
@@ -155,6 +155,7 @@ app.post("/api/student/login", async (req, res, next) => {
     return res.status(400).json({ message: "User not found." });
   }
 });
+
 app.post("/api/mentor/login", async (req, res, next) => {
   try {
     const data = req.body;
@@ -211,8 +212,17 @@ app.post("/api/student/profile", async (req, res, next) => {
   }
 });
 
+app.post("/mentor/book", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log(data);
+    const mentor = await MentorModel.findOne({ name: data.name });
+    res.json({ mentor });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor not found." });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
