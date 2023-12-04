@@ -17,7 +17,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
 import Search_student from "./pages/Search/Search_student";
 import Search_mentor from "./pages/Search/Search_mentor";
-import BookMeeting from "./pages/BookMeeting/BookMeeting";
+import BookMentorMeeting from "./pages/BookMeeting/BookMentorMeeting";
+import BookStudentMeeting from "./pages/BookMeeting/BookStudentMeeting";
 
 axios.defaults.baseURL = "http://localhost:4000";
 
@@ -88,7 +89,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/book/mentor/:name",
-        element: <BookMeeting />,
+        element: <BookMentorMeeting />,
+      },
+      {
+        path: "/book/student/:name",
+        element: <BookStudentMeeting />,
       },
     ],
   },

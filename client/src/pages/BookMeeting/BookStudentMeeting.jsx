@@ -5,19 +5,19 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DateCalendar } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import axios from "axios";
-import "./BookMeeting.css";
+import "./BookStudentMeeting.css";
 
-const BookMeeting = () => {
+const BookStudentMeeting = () => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [mentor, setMentor] = useState("");
+  const [student, setStudent] = useState("");
   const { name } = useParams();
 
   useEffect(() => {
     try {
       const getData = async (name) => {
-        const res = await axios.post(`/api/book/mentor`, { name });
+        const res = await axios.post(`/api/book/student`, { name });
         console.log(res.data);
-        setMentor(res.data.mentor);
+        setStudent(res.data.student);
       };
 
       if (name) {
@@ -30,13 +30,13 @@ const BookMeeting = () => {
 
   return (
     <main className="book-meeting-container">
-      <h1>Book a meeting with {mentor.name}</h1>
+      <h1>Book a meeting with {student.name}</h1>
       <div className="container">
         <div className="info-container">
-          <h3>{mentor.name}</h3>
-          <div>Sector: {mentor.sector}</div>
-          <div>Major: {mentor.major}</div>
-          <div>Region: {mentor.region}</div>
+          <h3>{student.name}</h3>
+          <div>Sector: {student.sector}</div>
+          <div>Major: {student.major}</div>
+          <div>Region: {student.region}</div>
         </div>
         <div className="calendar-container">
           <LocalizationProvider
@@ -55,4 +55,4 @@ const BookMeeting = () => {
   );
 };
 
-export default BookMeeting;
+export default BookStudentMeeting;

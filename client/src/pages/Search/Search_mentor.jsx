@@ -4,6 +4,10 @@ import "./Search_mentor.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const nameToSlug = (name) => {
+  return name.toLowerCase().split(" ").join("-");
+};
+
 const Search_mentor = () => {
   const [major, setMajor] = useState("Math");
   const [sector, setSector] = useState("Software Engineer");
@@ -90,7 +94,9 @@ const Search_mentor = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/mentor/${user.name}`}>{user.name}</Link>
+                    <Link to={`/book/student/${nameToSlug(user.name)}`}>
+                      {user.name}
+                    </Link>
                   </h2>
                   <p>
                     Major: {user.major} | Graduation Year: {user.gradYear}
@@ -127,6 +133,7 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">General Discussion</div>
                   <div className="bubble">Coffee Chats</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -150,6 +157,7 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">Interview Advice</div>
                   <div className="bubble">Mock Interview</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -174,6 +182,7 @@ const Search_mentor = () => {
                   <div className="bubble">General Advice</div>
                   <div className="bubble">Zoom</div>
                   <div className="bubble">Phone</div>
+                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>

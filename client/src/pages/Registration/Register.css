@@ -1,4 +1,4 @@
-.login-container {
+.registration-container {
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   margin-bottom: 20px;
 }
 
-.login-main {
+.register-main {
   background-color: #fff;
   padding: 50px;
   border-radius: 10px;
@@ -20,7 +20,7 @@
   width: 60%;
 }
 
-.login-main h2 {
+.register-main h2 {
   margin-bottom: 20px;
   color: #6d0000;
   padding-bottom: 2%;
