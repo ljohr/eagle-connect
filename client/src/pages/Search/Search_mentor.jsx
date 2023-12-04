@@ -1,66 +1,113 @@
-import React from "react";
-import "./Search_mentor.css";
+import React,  { useState, useEffect} from 'react';
+import SearchIcon from '@mui/icons-material/Search';
+import './Search_mentor.css'; 
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Search_mentor = () => {
+  const [major, setMajor] = useState("Math");
+  const [sector, setSector] = useState("Software Engineer");
+  const [meet_type, setType] = useState("Zoom");
+
+  const [users, setUsers] = useState([]);
+
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    console.log(major, sector, meet_type);
+    try{
+      const res = await axios.post("/api/search", {
+        major: major,
+        sector: sector,
+        meet_type: meet_type
+      });
+      console.log(res.data.student);
+      setUsers(res.data.student);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+ 
+
   return (
     <>
-      <main className="mentor-search">
+      <main className='mentor-search'>
         <section id="search">
-          <form action="#" method="get">
+          <form action="#" method="get" onSubmit = {handleSearch}>
+          <div id="search-bar">
             <label htmlFor="selectMajor">Select Major:</label>
-            <select id="selectMajor" name="selectMajor">
-              <option value="math">Math</option>
-              <option value="cs">Computer Science</option>
-              <option value="english">English</option>
-              <option value="psychology">Psychology</option>
+            <select id="selectMajor" name="selectMajor" onChange={(e) => setMajor(e.target.value)}>
+              <option value="Math">Math</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="English">English</option>
+              <option value="Psychology">Psychology</option>
             </select>
-          </form>
-          <form action="#" method="get">
+          </div>
+
+          <div id="search-bar">
             <label htmlFor="selectSector">Select Sector:</label>
-            <select id="selectSector" name="selectSector">
-              <option value="software engineer">Software Engineer</option>
-              <option value="product manager">Product Manager</option>
-              <option value="data scientist">Data Scientist</option>
-              <option value="tech analyst">Business Analyst</option>
+            <select id="selectSector" name="selectSector" onChange={(e) => setSector(e.target.value)}>
+              <option value="Software Engineer">Software Engineer</option>
+              <option value="Product Manager">Product Manager</option>
+              <option value="Data Scientist">Data Scientist</option>
+              <option value="Business Analyst">Business Analyst</option>
             </select>
-          </form>
-          <form action="#" method="get">
+          </div>
+
+          <div id="search-bar">
             <label htmlFor="selectType">Select Meet Up Type:</label>
-            <select id="selectType" name="selectType">
-              <option value="zoom">Zoom</option>
-              <option value="phone">Phone</option>
-              <option value="inperson">In-Person</option>
+            <select id="selectType" name="selectType" onChange={(e) => setType(e.target.value)}>
+              <option value="Zoom">Zoom</option>
+              <option value="Phone">Phone</option>
+              <option value="In-Person">In-Person</option>
             </select>
+          </div>
+
+            {/* <button type="submit" value="Submit"> Submit</button> */}
+            <input type="submit" value="Submit" />
           </form>
-          <input type="submit" value="Submit" />
-          <form className="search" action="action_page.php">
-            <input type="text" placeholder="Search People.." name="search" />
-            <button type="submit-search">
-              <i className="fa fa-search"></i>
-            </button>
-          </form>
+              {/* <input type="text" placeholder="Search People.." name="search" />
+              <button type="submit-search"><SearchIcon /></button> */}
+    
         </section>
 
         {/* person info */}
         {/* person1 */}
         <section id="info">
           <h1>Unlock Mentorship Possibilities</h1>
+          {users.map((user) => {
+            return (
+              <div className="alumni-block" key={user._id}>
+                <img src={user.photo} alt="Profile Picture" />
+                <div className="info">
+                  <h2><Link to = "/profile">{user.name}</Link></h2>
+                  <p>Major: {user.major} | Graduation Year: {user.gradYear}</p>
+                  <p>{user.about}</p>
+              <div className="features">
+                <div className="feature">
+                  <div className="bubble">{user.region}</div>
+                  <div className="bubble">{user.help}</div>
+                  <div className="bubble">{user.meet_type}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+            );
+          })}
+        
+          
           <div className="alumni-block">
-            <img
-              src="https://cdn.glitch.global/06dd22aa-8255-4329-8c9e-4213dfe9151b/headshot-smiling-confident-african-american-teen-college-student-with-eyeglasses-looking-camera-vertical-image-education-concept_411082-915.avif?v=1700446486185"
-              alt="Profile Picture"
-            />
+            <img src="https://cdn.glitch.global/82f4f962-cdd9-458c-be3f-2ad300c125e2/FRA-1699dark-sq.jpg?v=1701643947535" alt="Profile Picture" />
+      
             <div className="info">
               <h2>Nathan Tran</h2>
-              <p>Major: Computer Science | Graduation Year: 2024</p>
-              <p>
-                I love diving into the world of technology. I am seeking
-                exciting opportunities as a software engineer.
-              </p>
+              <p>Major: Philosophy | Graduation Year: 2024</p>
+              <p>Enthusiastic philosophy major with a fervor for exploring ideas and critical thinking, seeking opportunities to apply analytical insights and contribute to meaningful discussions.</p>
               <div className="features">
                 <div className="feature">
                   <div className="bubble">Boston, MA</div>
-                  <div className="bubble">Resume Review</div>
+                  <div className="bubble">General Discussion</div>
                   <div className="bubble">Coffee Chats</div>
                 </div>
               </div>
@@ -69,17 +116,11 @@ const Search_mentor = () => {
 
           {/* person2 */}
           <div className="alumni-block">
-            <img
-              src="https://cdn.glitch.global/06dd22aa-8255-4329-8c9e-4213dfe9151b/download.jpeg?v=1700446443439"
-              alt="Profile Picture"
-            />
+            <img src="https://cdn.glitch.global/06dd22aa-8255-4329-8c9e-4213dfe9151b/download.jpeg?v=1700446443439" alt="Profile Picture" />
             <div className="info">
               <h2>Emily Nostrant</h2>
               <p>Major: Psychology | Graduation Year: 2025</p>
-              <p>
-                I am preparing for interviews for my summer internships. Your
-                advice and help can mean a lot!{" "}
-              </p>
+              <p>I am preparing for interviews for my summer internships. Your advice and help can mean a lot! </p>
               <div className="features">
                 <div className="feature">
                   <div className="bubble">Boston, MA</div>
@@ -92,17 +133,11 @@ const Search_mentor = () => {
 
           {/* person3 */}
           <div className="alumni-block">
-            <img
-              src="https://cdn.glitch.global/06dd22aa-8255-4329-8c9e-4213dfe9151b/close-headshot-absolutely-happy-woman-260nw-776699968.webp?v=1700446540957"
-              alt="Profile Picture"
-            />
+            <img src="https://cdn.glitch.global/06dd22aa-8255-4329-8c9e-4213dfe9151b/close-headshot-absolutely-happy-woman-260nw-776699968.webp?v=1700446540957" alt="Profile Picture" />
             <div className="info">
               <h2>Hannah Jones</h2>
               <p>Major: English | Graduation Year: 2027</p>
-              <p>
-                I find joy in the power of words. I am currently looking for
-                some general career guide advice.
-              </p>
+              <p>I find joy in the power of words. I am currently looking for some general career guide advice.</p>
               <div className="features">
                 <div className="feature">
                   <div className="bubble">Boston, MA</div>
