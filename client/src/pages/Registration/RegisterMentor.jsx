@@ -16,26 +16,47 @@ const RegisterMentor = () => {
   const [jobTitle, setJobTitle] = useState("swe");
   const [meetSelect, setMeetSelect] = useState([]);
   const [adviceSelect, setAdviceSelect] = useState([]);
+  const [linkedin, setLinkedin] = useState("");
+  const [about, setAbout] = useState("");
+  const [resume, setResume] = useState("");
+  const [educations, setEducations] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [skill, setSkill] = useState("");
+  const [interests, setInterests] = useState([]);
+  const [interest, setInterest] = useState("");
+  const [photo, setPhoto] = useState("");
+
+  const handleEducation = () => {
+    if (education) {
+      setEducations([...educations, ...education.split(',').map(item => item.trim())]);
+      setEducation("");
+    }
+  };
+
+  const handleAddSkill = () => {
+    if (skill) {
+      setSkills([...skills, ...skill.split(',').map(item => item.trim())]);
+      setSkill("");
+    }
+  };
+  
+  const handleAddInterest = () => {
+    if (interest) {
+      setInterests([...interests, ...interest.split(',').map(item => item.trim())]);
+      setInterest("");
+    }
+  };
 
   const registerMentor = async (e) => {
+    const navigate = useNavigate();
     e.preventDefault();
     try {
       console.log(
         name,
         email,
         password,
-        major,
-        region,
-        gradYear,
-        sector,
-        jobTitle,
-        meetSelect,
-        adviceSelect
-      );
-      const res = await axios.post("/api/mentor/register", {
-        name,
-        email,
-        password,
+        photo,
         major,
         region,
         gradYear,
@@ -43,6 +64,31 @@ const RegisterMentor = () => {
         jobTitle,
         meetSelect,
         adviceSelect,
+        linkedin,
+        about,
+        resume,
+        educations,
+        skills,
+        interests
+      );
+      const res = await axios.post("/api/mentor/register", {
+        name,
+        email,
+        password,
+        photo,
+        major,
+        region,
+        gradYear,
+        sector,
+        jobTitle,
+        meetSelect,
+        adviceSelect,
+        linkedin,
+        about,
+        resume,
+        educations,
+        skills,
+        interests,
       });
       localStorage.setItem("uid", res.data.mentorUID);
       navigate("/");
@@ -106,6 +152,16 @@ const RegisterMentor = () => {
               className="input-text"
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="input-container">
+            <h5>Profile Picture</h5>
+            <input
+              type="text"
+              value={photo}
+              placeholder="Profile Picture"
+              className="input-text"
+              onChange={(e) => setPhoto(e.target.value)}
             />
           </div>
           <div className="input-container">
@@ -255,6 +311,26 @@ const RegisterMentor = () => {
               />
               <label htmlFor="in-person">In-Person Meeting</label>
             </div>
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="Email"
+                name="interest"
+                value="Email"
+                onChange={handleMethodChange}
+              />
+              <label htmlFor="Email">Email</label>
+            </div>
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="Phone"
+                name="interest"
+                value="Phone"
+                onChange={handleMethodChange}
+              />
+              <label htmlFor="Phone">Phone Call</label>
+            </div>
           </div>
 
           <div className="meeting-purpose input-container">
@@ -299,6 +375,88 @@ const RegisterMentor = () => {
               />
               <label htmlFor="coffee-chat">Coffee Chat</label>
             </div>
+            <div className="input-container">
+              <h5>LinkedIn Profile</h5>
+              <input
+                type="text"
+                value={linkedin}
+                placeholder="LinkedIn URL"
+                className="input-text"
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Resume</h5>
+              <input
+                type="text"
+                value={resume}
+                placeholder="Upload your resume"
+                className="input-text"
+                onChange={(e) => setResume(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>About</h5>
+              <input
+                type="text"
+                value={about}
+                placeholder="Tell us about yourself"
+                className="input-text"
+                onChange={(e) => setAbout(e.target.value)}
+              />
+            </div>
+            <div className="input-container">
+              <h5>Education</h5>
+              <input
+                type="text"
+                value={education}
+                placeholder="Education (comma-separated)"
+                className="input-text"
+                onChange={(e) => setEducation(e.target.value)}
+                onBlur={handleEducation}
+              />
+
+              <ul>
+                {educations.map((education, index) => (
+                  <li key={index}>{education}</li>
+                ))}
+              </ul>
+            </div>
+
+          <div className="input-container">
+            <h5>Skills</h5>
+              <input
+                type="text"
+                value={skill}
+                placeholder="Skills (comma-separated)"
+                className="input-text"
+                onChange={(e) => setSkill(e.target.value)}
+                onBlur={handleAddSkill}
+              />
+            <ul>
+              {skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="input-container">
+            <h5>Interests</h5>
+              <input
+                type="text"
+                value={interest}
+                placeholder="Interests (comma-separated)"
+                className="input-text"
+                onChange={(e) => setInterest(e.target.value)}
+                onBlur={handleAddInterest}
+              />
+            <ul>
+              {interests.map((interest, index) => (
+                <li key={index}>{interest}</li>
+              ))}
+            </ul>
+          </div>
+
           </div>
           <button className="register-btn" type="submit">
             Sign Up

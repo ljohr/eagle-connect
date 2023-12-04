@@ -3,16 +3,26 @@ const { Schema } = mongoose;
 
 const MentorSchema = new Schema({
   name: String,
-  email: { type: String, unique: true },
+  email: { type: String, unique: true},
   password: String,
+  photo: String,
   major: String,
   region: String,
   sector: String,
   jobTitle: String,
   gradYear: { type: Number, default: 2020 },
+  linkedin: String,
+  about: String,
+  resume: String,
+  educations: [String],
+  skills: [String],
+  interests: [String],
+
   meetingMethod: {
     zoom: { type: Boolean, default: false },
     inPerson: { type: Boolean, default: false },
+    Email: { type: Boolean, default: false },
+    Phone: { type: Boolean, default: false },
   },
   helpType: {
     generalCareer: { type: Boolean, default: false },

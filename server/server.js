@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./config/connectDB.js";
 import StudentModel from "./models/Student.js";
-import MentorModel from "./models/mentor.js";
+import MentorModel from "./models/Mentor.js";
 
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -65,6 +65,13 @@ app.post("/api/student/register", async (req, res, next) => {
         gradYear: data.gradYear,
         meetingMethod: meetingMethodData,
         helpType: helpTypeData,
+        photo: data.photo,
+        linkedin: data.linkedin,
+        about: data.about,
+        resume: data.resume,
+        aspiration: data.aspiration,
+        skills: data.skills,
+        interests: data.interests,
       });
       await student.save();
     }
@@ -122,6 +129,13 @@ app.post("/api/mentor/register", async (req, res, next) => {
         gradYear: data.gradYear,
         meetingMethod: meetingMethodData,
         helpType: helpTypeData,
+        photo: data.photo,
+        linkedin: data.linkedin,
+        about: data.about,
+        resume: data.resume,
+        educations: data.educations,
+        skills: data.skills,
+        interests: data.interests,
       });
       await mentor.save();
     }
@@ -149,6 +163,28 @@ app.post("/api/mentor/login", async (req, res, next) => {
     res.json({ mentorUID: mentor._id });
   } catch (error) {
     return res.status(400).json({ message: "Mentor not found." });
+  }
+});
+
+app.post("/api/mentor/profile", async (req, res, next) => {
+  try {
+    const data = req.body;
+    const mentor = await MentorModel.findOne({ _id: data.uid });
+    console.log("hi from server", mentor);
+    res.json({ mentor });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor Profile not found." });
+  }
+});
+
+app.post("/api/student/profile", async (req, res, next) => {
+  try {
+    const data = req.body;
+    const student = await StudentModel.findOne({ _id: data.uid });
+    console.log("hi from server", student);
+    res.json({ student });
+  } catch (error) {
+    return res.status(400).json({ message: "Student Profile not found." });
   }
 });
 

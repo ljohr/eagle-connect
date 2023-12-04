@@ -1,9 +1,12 @@
+
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
+import MentorProfile from "./MentorProfile.jsx";
+import StudentProfile from "./StudentProfile.jsx";
+
 const Profile = () => {
-  return (
-    <main>
-      <h1>Profile</h1>
-    </main>
-  );
+  const { isStudent } = useContext(AuthContext);
+  return <>{isStudent ? <StudentProfile /> : <MentorProfile />}</>;
 };
 
 export default Profile;
