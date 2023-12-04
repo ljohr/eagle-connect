@@ -1,0 +1,28 @@
+.book-meeting-container {
+  text-align: center;
+}
+
+.container {
+  padding-top: 3%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.btn-category {
+  border: none;
+  display: inline-block;
+  background-color: #393939;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  max-width: 10rem;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}

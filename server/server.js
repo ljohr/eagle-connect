@@ -169,10 +169,13 @@ app.post("/api/search", async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
-    const student = await StudentModel.find({ major: data.major, sector: data.sector, meet_type: data.meet_type });
+    const student = await StudentModel.find({
+      major: data.major,
+      sector: data.sector,
+      meet_type: data.meet_type,
+    });
     res.json({ student });
-  }
-  catch (error) {
+  } catch (error) {
     return res.status(400).json({ message: "User not found." });
   }
 });
@@ -181,14 +184,16 @@ app.post("/api/student_search", async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
-    const mentor = await MentorModel.find({ major: data.major, sector: data.sector, meet_type: data.meet_type });
+    const mentor = await MentorModel.find({
+      major: data.major,
+      sector: data.sector,
+      meet_type: data.meet_type,
+    });
     res.json({ mentor });
-  }
-  catch (error) {
+  } catch (error) {
     return res.status(400).json({ message: "User not found." });
   }
 });
-
 
 app.post("/api/mentor/profile", async (req, res, next) => {
   try {
@@ -212,10 +217,10 @@ app.post("/api/student/profile", async (req, res, next) => {
   }
 });
 
-app.post("/mentor/book", async (req, res, next) => {
+app.post("/api/book/mentor/", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
+    console.log("data", data);
     const mentor = await MentorModel.findOne({ name: data.name });
     res.json({ mentor });
   } catch (error) {

@@ -19,8 +19,6 @@ import Search_student from "./pages/Search/Search_student";
 import Search_mentor from "./pages/Search/Search_mentor";
 import BookMeeting from "./pages/BookMeeting/BookMeeting";
 
-
-
 axios.defaults.baseURL = "http://localhost:4000";
 
 const LayOut = () => {
@@ -70,7 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Search/>,
+        element: <Search />,
       },
       {
         path: "/search_student",
@@ -89,7 +87,7 @@ const router = createBrowserRouter([
         element: <RegisterStudent />,
       },
       {
-        path: "/mentor/book",
+        path: "/book/mentor/:name",
         element: <BookMeeting />,
       },
     ],

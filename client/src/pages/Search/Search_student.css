@@ -1,144 +1,156 @@
-
 @media screen and (min-width: 769px) {
-    .student-search {
-      display: grid;
-      grid-template-columns: 0.5fr 2fr;
-      grid-template-areas:
-        "search info";
-    }
-    #info {
-        grid-area: info;
-      }
-    #search {
-      grid-area: search;
-    }
+  .student-search {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-areas: "search info";
+  }
+  #info {
+    grid-area: info;
+  }
+  #search {
+    grid-area: search;
+  }
 }
 
 #search {
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 50px;
-    
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 50px;
 }
 
-#search-bar{
-    padding-bottom: 20px;
+#search-bar {
+  padding-bottom: 20px;
 }
 
 form {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-select, input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+select,
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 /* Optional: Add some styling for the input group */
 
 form.search {
-    display: flex; 
-    align-items: center; 
-  }
+  display: flex;
+  align-items: center;
+}
 
-form.search input[type=text] {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid grey;
-    width: 80%;
-    background: #f1f1f1;
-  }
-  
-  /* Style the submit button */
-  form.search button {
-    width: 20%;
-    padding: 10px;
-    background: #3498db;
-    color: white;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+form.search input[type="text"] {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid grey;
+  width: 80%;
+  background: #f1f1f1;
+}
 
-  }
-  
-  form.search button:hover {
-    background: #0b7dda;
-  }
+/* Style the submit button */
+form.search button {
+  width: 20%;
+  padding: 10px;
+  background: #3498db;
+  color: white;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
 
-
+form.search button:hover {
+  background: #0b7dda;
+}
 
 /* alumni section */
 
 .alumni-block {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 .alumni-block img {
-    border-radius: 50%;
-    margin-right: 20px;
-    width: 100px; /* Adjust the size as needed */
-    height: 100px; /* Adjust the size as needed */
+  border-radius: 50%;
+  margin-right: 20px;
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
 }
 
 #info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .info h2 {
-    margin-bottom: -5px;
-    color: #333;
+  margin-bottom: -5px;
+  color: #333;
 }
 
 .info p {
-    margin-bottom: -5px;
-    color: #666;
+  margin-bottom: -5px;
+  color: #666;
 }
 
 .features {
-    padding-top: 15px;
-    display: flex;
+  padding-top: 15px;
+  display: flex;
 }
 
 .feature {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .bubble {
-    width: auto;
-    padding: 10px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #3498db; /* Adjust the color as needed */
-    margin-right: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 12px;
+  width: auto;
+  padding: 10px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #3498db; /* Adjust the color as needed */
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.booking-link {
+  width: auto;
+  padding: 10px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3498db;
+  font-size: 12px;
+}
+
+.booking-link:hover {
+  background-color: rgba(221, 221, 221, 0.835);
 }
