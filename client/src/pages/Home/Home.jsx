@@ -9,7 +9,7 @@ const Hero = () => {
       <h1>Eagle Connect</h1>
 
       <h3>Your Ultimate BC Networking Companion </h3>
-      <div className="login-container">
+      <div className="home-login-container">
 
         <button>
           <Link to="/mentor/login">Login as a Mentor</Link>
