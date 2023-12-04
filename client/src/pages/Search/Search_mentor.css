@@ -21,6 +21,10 @@
     margin-right: 50px;
 }
 
+#search-bar{
+  padding-bottom: 20px;
+}
+
 form {
     margin-bottom: 15px;
 }
@@ -100,19 +104,21 @@ form.search input[type=text] {
 .info {
     display: flex;
     flex-direction: column;
+
 }
 
-h2 {
-    margin-bottom: 10px;
+.info h2 {
+    margin-bottom: -5px;
     color: #333;
 }
 
-p {
-    margin-bottom: 10px;
+.info p {
+    margin-bottom: -5px;
     color: #666;
 }
 
 .features {
+    padding-top: 15px;
     display: flex;
 }
 
