@@ -8,10 +8,7 @@ const Search_mentor = () => {
   const [major, setMajor] = useState("Math");
   const [sector, setSector] = useState("Software Engineer");
   const [meet_type, setType] = useState("Zoom");
-
   const [users, setUsers] = useState([]);
-
-
   const handleSearch = async (e) => {
     e.preventDefault();
     console.log(major, sector, meet_type);
