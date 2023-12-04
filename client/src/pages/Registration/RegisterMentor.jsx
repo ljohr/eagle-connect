@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "./RegisterMentor.css";
 
 const RegisterMentor = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,6 @@ const RegisterMentor = () => {
   const [adviceSelect, setAdviceSelect] = useState([]);
 
   const registerMentor = async (e) => {
-    const navigate = useNavigate();
     e.preventDefault();
     try {
       console.log(

@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+h4,
+p {
+  margin: 0.7rem 0;
+  padding: 0;
+}
+
+.dashboard-main h1 {
+  padding-bottom: 1%;
+}
+
+.appointments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2%;
+  row-gap: 2%;
+}
+
+.scheduled {
+  background-color: rgb(245, 245, 245);
+}
+
+.saved {
+  background-color: rgb(245, 245, 245);
+}
+
+.title {
+  font-size: 1.5rem;
+  padding: 3% 5%;
+}
+
+.btn-category {
+  border: none;
+  display: inline-block;
+  background-color: #393939;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  max-width: 10rem;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+.profile-img {
+  width: 100%;
+  padding-right: 1rem;
+}
+
+.profile-img img {
+  width: 100%;
+}
+
+.appointment-single,
+.mentor-single {
+  padding: 2% 5%;
+  background-color: rgb(243, 243, 243);
+  border-top: 0.5px solid rgb(72, 72, 72);
+}
+
+.appointment-inner,
+.mentor-inner {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+}
+
+.time {
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.name {
+  font-weight: 600;
+}
