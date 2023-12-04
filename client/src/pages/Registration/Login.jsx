@@ -9,6 +9,7 @@ const Login = () => {
         <img src={LogoLink} width="480" height="270"></img>
     </div>
     <main className="login-main">
+      <h2>Select Your Identity</h2>
       <button>
         <Link to="/mentor/login">Login as a Mentor</Link>
       </button>
