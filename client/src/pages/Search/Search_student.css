@@ -151,6 +151,14 @@ form.search button:hover {
   font-size: 12px;
 }
 
+.booking-link a {
+  color: #3498db;
+}
+
+.booking-link a:hover {
+  color: #3498db;
+}
+
 .booking-link:hover {
   background-color: rgba(221, 221, 221, 0.835);
 }
