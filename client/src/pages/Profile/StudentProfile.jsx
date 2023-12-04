@@ -4,50 +4,49 @@ import React, { useEffect, useState } from "react";
 
 const StudentProfile = () => {
 
-  const [student, setStudent]= useState();
+  const [student, setStudent]= useState([]);
 
-  const getData = async (e) => {
+  const getData = async () => {
     const uid = localStorage.getItem("uid");
     try {
-      const res = await axios.post("/api/mentor/profile", {uid})
-      const data = await response.json();
-      console.log(data);
-      setMentor(data);
+      const res = await axios.post("/api/student/profile", {uid})
+      console.log(res.data.student);
+      setStudent(res.data.student);
     } catch (error) {
       console.log(error)
     }
   }
 
-  const renderMain = (data) => {
-    const user = document.querySelector('.user');
-    user.innerHTML += renderUser(data.student);
-    const about = document.querySelector('.about');
-    about.innerHTML += renderAbout(data.student);
-    const career = document.querySelector('.career');
-    career.innerHTML += renderCareer(data.student);
-  };
+  useEffect(() => {
+    getData(); 
+  }, []);
 
   const renderUser = (data) => (
-    <div className="text">
-      <img src={data.photo} alt="alumni-photo" />
-      <h1>{data.name}</h1>
-      <h3>
-        <a href={data.email}>{data.email}</a>
-      </h3>
-      <h3>
-        <a href={data.linkedin}>{data.linkedin}</a>
-      </h3>
-      <h3>
-        <a href={data.resume}>{data.resume}</a>
-      </h3>
+    <div className="user">
+      <div className="text">
+        <img src={data.photo} alt="student-photo" />
+        <h1>{data.name}</h1>
+        <h3>
+          <a href={`mailto:${data.email}`}>{data.email}</a>
+        </h3>
+        <h3>
+          <a href={data.linkedin}>{data.linkedin}</a>
+        </h3>
+        <h3>
+          <a href={data.resume}>{data.resume}</a>
+        </h3>
+      </div>
     </div>
   );
 
   const renderAbout = (data) => (
-    <div className="text">
-      <p>{data.about}</p>
-      <h3>Looking For Help With: </h3>
-      <p>{data.help}</p>
+    <div className="about">
+      <div className="text">
+        <h3>About</h3>
+        <p>{data.about}</p>
+        <h3>Looking For Help With: </h3>
+        <p>{data.help}</p>
+      </div>
     </div>
   );
 
@@ -56,13 +55,15 @@ const StudentProfile = () => {
     const interestsListItems = bulletPoints(data.interests);
 
     return (
-      <div className="text">
-        <h2>Skills:</h2>
-        {skillsListItems}
-        <h2>Career Aspirations:</h2>
-        <p>{data.aspirations}</p>
-        <h2>Interests:</h2>
-        {interestsListItems}
+      <div className="career">
+        <div className="text">
+          <h2>Skills:</h2>
+          {skillsListItems}
+          <h2>Career Aspirations:</h2>
+          <p>{data.aspirations}</p>
+          <h2>Interests:</h2>
+          {interestsListItems}
+        </div>
       </div>
     );
   };
@@ -84,10 +85,10 @@ const StudentProfile = () => {
   };
 
   return (
-    <div>
-      <div className="user"></div>
-      <div className="about"></div>
-      <div className="career"></div>
+    <div className="container">
+        {renderUser(student)}
+        {renderAbout(student)}
+        {renderCareer(student)}
     </div>
   );
 };
