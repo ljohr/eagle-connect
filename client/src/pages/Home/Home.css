@@ -58,7 +58,7 @@
 }
 
 .circle-box img {
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 50%;
 }
@@ -71,9 +71,11 @@
 /* In styles.css */
 
 .how-to-join {
-  border: 1px solid #ccc;
+  border: 1px solid transparent;
+  /* border: 1px solid #ccc; */
   padding: 20px;
   margin: 10px;
-  background-color: #f8f8f8;
+  background-color: #EFEBE0;
   border-radius: 20px;
+  text-align: center;
 }
