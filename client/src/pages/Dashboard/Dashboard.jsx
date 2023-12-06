@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 import profileLink1 from "../../assets/profile-1.svg";
 import profileLink2 from "../../assets/profile-2.svg";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const { isStudent } = useContext(AuthContext);
   return (
     <main className="dashboard-main">
       <h1>My Dashboard</h1>
@@ -55,7 +58,9 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="saved">
-            <h3 className="title">Saved Mentors</h3>
+            <h3 className="title">
+              {isStudent ? <>Saved Mentors</> : <>Saved Students</>}
+            </h3>
             <div className="mentor-single">
               <div className="mentor-inner">
                 <div className="profile-img">

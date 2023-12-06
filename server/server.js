@@ -206,7 +206,7 @@ app.post("/api/student_search", async (req, res, next) => {
   }
 });
 
-app.post("/api/mentor/profile", async (req, res, next) => {
+app.post("/api/mentor/myprofile", async (req, res, next) => {
   try {
     const data = req.body;
     const mentor = await MentorModel.findOne({ _id: data.uid });
@@ -217,7 +217,7 @@ app.post("/api/mentor/profile", async (req, res, next) => {
   }
 });
 
-app.post("/api/student/profile", async (req, res, next) => {
+app.post("/api/student/myprofile", async (req, res, next) => {
   try {
     const data = req.body;
     const student = await StudentModel.findOne({ _id: data.uid });
@@ -225,6 +225,32 @@ app.post("/api/student/profile", async (req, res, next) => {
     res.json({ student });
   } catch (error) {
     return res.status(400).json({ message: "Student Profile not found." });
+  }
+});
+
+app.post("/api/mentor/profile", async (req, res, next) => {
+  try {
+    const data = req.body;
+    console.log(makeTitleCase(nameFromSlug(data.name)));
+    const mentor = await MentorModel.findOne({
+      name: makeTitleCase(nameFromSlug(data.name)),
+    });
+    console.log(mentor);
+    res.json({ mentor });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor not found." });
+  }
+});
+
+app.post("/api/student/profile", async (req, res, next) => {
+  try {
+    const data = req.body;
+    const student = await StudentModel.findOne({
+      name: makeTitleCase(nameFromSlug(data.name)),
+    });
+    res.json({ student });
+  } catch (error) {
+    return res.status(400).json({ message: "Mentor not found." });
   }
 });
 

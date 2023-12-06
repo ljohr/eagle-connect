@@ -12,7 +12,9 @@ import RegisterMentor from "./pages/Registration/RegisterMentor";
 import RegisterStudent from "./pages/Registration/RegisterStudent";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./pages/AuthContext";
-import Profile from "./pages/Profile/Profile";
+import MyProfile from "./pages/MyProfile/Profile";
+import StudentProfile from "./pages/Profiles/StudentProfile";
+import MentorProfile from "./pages/Profiles/MentorProfile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "./pages/Search/Search";
 import Search_student from "./pages/Search/Search_student";
@@ -65,7 +67,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <MyProfile />,
+      },
+      {
+        path: "/student/profile/:name",
+        element: <StudentProfile />,
+      },
+      {
+        path: "/mentor/profile/:name",
+        element: <MentorProfile />,
       },
       {
         path: "/search",
@@ -88,11 +98,11 @@ const router = createBrowserRouter([
         element: <RegisterStudent />,
       },
       {
-        path: "/book/mentor/:name",
+        path: "/mentor/book/:name",
         element: <BookMentorMeeting />,
       },
       {
-        path: "/book/student/:name",
+        path: "/student/book/:name",
         element: <BookStudentMeeting />,
       },
     ],

@@ -1,24 +1,22 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const StudentProfile = () => {
-
-  const [student, setStudent]= useState([]);
+  const [student, setStudent] = useState([]);
 
   const getData = async () => {
     const uid = localStorage.getItem("uid");
     try {
-      const res = await axios.post("/api/student/profile", {uid})
+      const res = await axios.post("/api/student/myprofile", { uid });
       console.log(res.data.student);
       setStudent(res.data.student);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getData(); 
+    getData();
   }, []);
 
   const renderUser = (data) => (
@@ -86,13 +84,11 @@ const StudentProfile = () => {
 
   return (
     <div className="container">
-        {renderUser(student)}
-        {renderAbout(student)}
-        {renderCareer(student)}
+      {renderUser(student)}
+      {renderAbout(student)}
+      {renderCareer(student)}
     </div>
   );
 };
 
 export default StudentProfile;
-
-  

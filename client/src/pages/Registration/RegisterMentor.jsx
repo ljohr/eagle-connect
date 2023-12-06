@@ -29,27 +29,32 @@ const RegisterMentor = () => {
 
   const handleEducation = () => {
     if (education) {
-      setEducations([...educations, ...education.split(',').map(item => item.trim())]);
+      setEducations([
+        ...educations,
+        ...education.split(",").map((item) => item.trim()),
+      ]);
       setEducation("");
     }
   };
 
   const handleAddSkill = () => {
     if (skill) {
-      setSkills([...skills, ...skill.split(',').map(item => item.trim())]);
+      setSkills([...skills, ...skill.split(",").map((item) => item.trim())]);
       setSkill("");
     }
   };
-  
+
   const handleAddInterest = () => {
     if (interest) {
-      setInterests([...interests, ...interest.split(',').map(item => item.trim())]);
+      setInterests([
+        ...interests,
+        ...interest.split(",").map((item) => item.trim()),
+      ]);
       setInterest("");
     }
   };
 
   const registerMentor = async (e) => {
-    const navigate = useNavigate();
     e.preventDefault();
     try {
       console.log(
@@ -423,8 +428,8 @@ const RegisterMentor = () => {
               </ul>
             </div>
 
-          <div className="input-container">
-            <h5>Skills</h5>
+            <div className="input-container">
+              <h5>Skills</h5>
               <input
                 type="text"
                 value={skill}
@@ -433,15 +438,15 @@ const RegisterMentor = () => {
                 onChange={(e) => setSkill(e.target.value)}
                 onBlur={handleAddSkill}
               />
-            <ul>
-              {skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
-          </div>
+              <ul>
+                {skills.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="input-container">
-            <h5>Interests</h5>
+            <div className="input-container">
+              <h5>Interests</h5>
               <input
                 type="text"
                 value={interest}
@@ -450,13 +455,12 @@ const RegisterMentor = () => {
                 onChange={(e) => setInterest(e.target.value)}
                 onBlur={handleAddInterest}
               />
-            <ul>
-              {interests.map((interest, index) => (
-                <li key={index}>{interest}</li>
-              ))}
-            </ul>
-          </div>
-
+              <ul>
+                {interests.map((interest, index) => (
+                  <li key={index}>{interest}</li>
+                ))}
+              </ul>
+            </div>
           </div>
           <button className="register-btn" type="submit">
             Sign Up

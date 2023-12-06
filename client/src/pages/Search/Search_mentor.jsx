@@ -94,7 +94,7 @@ const Search_mentor = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/student/${nameToSlug(user.name)}`}>
+                    <Link to={`/student/profile/${nameToSlug(user.name)}`}>
                       {user.name}
                     </Link>
                   </h2>
@@ -133,7 +133,6 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">General Discussion</div>
                   <div className="bubble">Coffee Chats</div>
-                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -157,7 +156,6 @@ const Search_mentor = () => {
                   <div className="bubble">Boston, MA</div>
                   <div className="bubble">Interview Advice</div>
                   <div className="bubble">Mock Interview</div>
-                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>
@@ -182,7 +180,6 @@ const Search_mentor = () => {
                   <div className="bubble">General Advice</div>
                   <div className="bubble">Zoom</div>
                   <div className="bubble">Phone</div>
-                  <div className="booking-link">Book a Meeting</div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../pages/AuthContext";
 import "./Navbar.css";
 
@@ -43,10 +43,12 @@ const renderRegisterLogin = () => {
 };
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { isLoggedIn, logout } = useContext(AuthContext);
 
   const logoutHandler = () => {
     logout();
+    navigate("/");
   };
 
   return (

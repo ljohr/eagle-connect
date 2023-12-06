@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Search_student.css";
@@ -94,12 +94,12 @@ const Search_student = () => {
                 <img src={user.photo} alt="Profile Picture" />
                 <div className="info">
                   <h2>
-                    <Link to={`/book/mentor/${nameToSlug(user.name)}`}>
+                    <Link to={`/mentor/profile/${nameToSlug(user.name)}`}>
                       {user.name}
                     </Link>
                   </h2>
                   <p>
-                    {user.sector} | Major: {user.major}{" "}
+                    {user.sector} | Major: {user.major}
                   </p>
                   <p>{user.about}</p>
                   <div className="features">
