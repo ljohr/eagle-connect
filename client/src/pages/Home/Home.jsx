@@ -42,7 +42,7 @@ const KeyImage = () => {
             alt="Image 1"
           ></img>
         </div>
-        <p class="image-caption">Connect to experienced alumni</p>
+        <p class="image-caption">Establish Connection</p>
       </div>
 
       <div class="image-wrapper">
@@ -52,7 +52,7 @@ const KeyImage = () => {
             alt="Image 2"
           ></img>
         </div>
-        <p class="image-caption">Book Meetings with Our Scheduling Tool</p>
+        <p class="image-caption">Book Meeting with Scheduling Tool</p>
       </div>
 
       <div class="image-wrapper">
@@ -62,7 +62,17 @@ const KeyImage = () => {
             alt="Image 3"
           ></img>
         </div>
-        <p class="image-caption">Discover Your Preferred Method of Meeting</p>
+        <p class="image-caption">Choose Your Preferred Meeting Type</p>
+      </div>
+
+      <div class="image-wrapper">
+        <div class="circle-box">
+          <img
+            src="https://www.svgrepo.com/show/228137/job-info.svg"
+            alt="Image 4"
+          ></img>
+        </div>
+        <p class="image-caption">Discover Your Career Path</p>
       </div>
     </div>
   );
