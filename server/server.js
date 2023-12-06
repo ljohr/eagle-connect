@@ -213,7 +213,6 @@ app.post("/api/student_search", async (req, res, next) => {
       major: data.major,
       sector: data.sector,
       meet_type: data.meet_type,
-      name: data.name,
     });
     res.json({ mentor });
   } catch (error) {

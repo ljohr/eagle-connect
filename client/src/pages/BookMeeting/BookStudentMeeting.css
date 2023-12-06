@@ -1,0 +1,70 @@
+.book-meeting-container_book {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .container_book {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .info-container_book {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-right:50px;
+  }
+  
+  .info-container_book h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .info-container_book div {
+    margin-bottom: 5px;
+  }
+  
+  /* .calendar-container {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  } */
+  
+  .calendar_book {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+
+.confirm-button {
+    background-color:  #3498db; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for better appearance */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Optional: Add some border-radius for rounded corners */
+    margin-left: 600px; /* Optional: Add some space between the search button and confirm button */
+  }
+  
+  .confirm-button:hover {
+    background-color: #2980b9; /* Darker green on hover */
+  }
+  

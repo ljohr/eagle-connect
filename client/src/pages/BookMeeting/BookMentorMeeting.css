@@ -1,13 +1,13 @@
-.book-meeting-container {
+/* .book-meeting-container_book {
   text-align: center;
 }
 
-.container {
+.container_book {
   padding-top: 3%;
   text-align: left;
   display: grid;
   grid-template-columns: 1fr 2fr;
-}
+} */
 
 .btn-category {
   border: none;
@@ -21,8 +21,72 @@
   margin-top: 0;
 }
 
-.info-container {
+/* .info-container_book {
   display: flex;
   flex-direction: column;
   gap: 2%;
+} */
+
+.book-meeting-container_book1 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.container_book1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.info-container_book1 {
+  flex: 1;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-right:50px;
+}
+
+.info-container_book1 h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info-container_book1 div {
+  margin-bottom: 5px;
+}
+
+
+.calendar_book1 {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.confirm-button1 {
+  margin-left: 500px;
+  background-color:  #3498db; /* Green background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding for better appearance */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Optional: Add some border-radius for rounded corners */
+  margin-left: 600px;
+}
+
+.confirm-button1:hover {
+  background-color: #2980b9; /* Darker green on hover */
 }

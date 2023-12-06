@@ -29,28 +29,34 @@ const BookStudentMeeting = () => {
   }, [name]);
 
   return (
-    <main className="book-meeting-container">
+    <main className="book-meeting-container_book">
       <h1>Book a meeting with {student.name}</h1>
-      <div className="container">
-        <div className="info-container">
+      <div className="container_book">
+        <div className="info-container_book">
           <h3>{student.name}</h3>
           <div>Sector: {student.sector}</div>
           <div>Major: {student.major}</div>
           <div>Region: {student.region}</div>
         </div>
-        <div className="calendar-container">
+        <div className="calendar-container_book">
           <LocalizationProvider
             dateAdapter={AdapterDayjs}
             label="Controlled calendar"
           >
             <DateCalendar
-              className="calendar"
+              className="calendar_book"
               value={selectedDate}
               onChange={(selectedDate) => setSelectedDate(selectedDate)}
             />
           </LocalizationProvider>
         </div>
       </div>
+
+      <a href="/dashboard">
+      <button type="button" className="confirm-button" >
+          Confirm
+        </button>
+        </a>
     </main>
   );
 };
