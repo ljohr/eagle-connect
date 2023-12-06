@@ -65,7 +65,7 @@ const KeyImage = () => {
         <p class="image-caption">Choose Your Preferred Meeting Type</p>
       </div>
 
-      <div class="image-wrapper">
+      {/* <div class="image-wrapper">
         <div class="circle-box">
           <img
             src="https://www.svgrepo.com/show/228137/job-info.svg"
@@ -73,7 +73,7 @@ const KeyImage = () => {
           ></img>
         </div>
         <p class="image-caption">Discover Your Career Path</p>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -107,7 +107,7 @@ const HowToJoin = () => {
             alt="Image 2"
           ></img>
         </div>
-        <p class="image-caption">Discover Profiles</p>
+        <p class="image-caption">Browse Profiles</p>
       </div>
 
       <div class="image-wrapper">

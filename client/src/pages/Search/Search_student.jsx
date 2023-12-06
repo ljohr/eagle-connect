@@ -13,6 +13,9 @@ const Search_student = () => {
   const [sector, setSector] = useState("Software Engineer");
   const [meet_type, setType] = useState("Zoom");
 
+  const [name, setName] = useState('');
+  // const [searchResults, setSearchResults] = useState([]);
+
   const [users, setUsers] = useState([]);
 
   const handleSearch = async (e) => {
@@ -22,7 +25,21 @@ const Search_student = () => {
       const res = await axios.post("/api/student_search", {
         major: major,
         sector: sector,
-        meet_type: meet_type,
+        meet_type: meet_type
+      });
+      console.log(res.data.mentor);
+      setUsers(res.data.mentor);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleNameSearch = async (e) => {
+    e.preventDefault();
+    console.log(name);
+    try {
+      const res = await axios.post("/api/student_search_name", {
+        name: name
       });
       console.log(res.data.mentor);
       setUsers(res.data.mentor);
@@ -78,9 +95,12 @@ const Search_student = () => {
             </div>
 
             <input type="submit" value="Submit" />
+            </form>
+
+          <form action="#" method="get" onSubmit={handleNameSearch}>
             <div class="look-bar">
-            <input type="text" placeholder="Search People.." name="search" />
-              <button type="submit-search" class="search-button"><SearchIcon /></button>
+            <input type="text" placeholder="Search People.." name="search" value={name} onChange={(e) => setName(e.target.value)}/>
+              <button type="submit" className="search-button" ><SearchIcon /></button>
             </div>
           </form>
         </section>
