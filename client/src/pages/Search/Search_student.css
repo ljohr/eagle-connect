@@ -49,6 +49,11 @@ input[type="submit"] {
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
 }
 
 /* Optional: Add some styling for the input group */
@@ -58,18 +63,18 @@ form.search {
   align-items: center;
 }
 
-form.search input[type="text"] {
+input[type="text"] {
   margin-top: 10px;
   padding: 10px;
   border: 1px solid grey;
-  width: 80%;
+  width: 60%;
   background: #f1f1f1;
 }
 
 /* Style the submit button */
 form.search button {
   width: 20%;
-  padding: 10px;
+  padding: 20px;
   background: #3498db;
   color: white;
   border: 1px solid grey;
@@ -80,6 +85,26 @@ form.search button {
 form.search button:hover {
   background: #0b7dda;
 }
+
+.look-bar {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically within the flex container */
+}
+
+input[type="text"] {
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.search-button {
+  background-color: #3498db; /* Set the background color to blue */
+  color: white; /* Set text color to white for better visibility */
+  border: none;
+  padding: 7px; /* Adjust padding as needed */
+  cursor: pointer;
+  font-size: 10px;
+}
+
+
 
 /* alumni section */
 

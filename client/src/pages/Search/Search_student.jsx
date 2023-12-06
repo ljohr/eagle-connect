@@ -77,11 +77,12 @@ const Search_student = () => {
               </select>
             </div>
 
-            {/* <button type="submit" value="Submit"> Submit</button> */}
             <input type="submit" value="Submit" />
+            <div class="look-bar">
+            <input type="text" placeholder="Search People.." name="search" />
+              <button type="submit-search" class="search-button"><SearchIcon /></button>
+            </div>
           </form>
-          {/* <input type="text" placeholder="Search People.." name="search" />
-              <button type="submit-search"><SearchIcon /></button> */}
         </section>
 
         {/* person info */}
