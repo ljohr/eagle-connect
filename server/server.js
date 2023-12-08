@@ -1,12 +1,15 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
 import connectDB from "./config/connectDB.js";
 import StudentModel from "./models/Student.js";
 import MentorModel from "./models/Mentor.js";
 
 const PORT = process.env.PORT || 4000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(express.json());
