@@ -116,13 +116,11 @@ app.post("/api/mentor/register", async (req, res, next) => {
 
     data.meetSelect.forEach((method) => {
       if (meetingMethodData.hasOwnProperty(method)) {
-        console.log(method);
         meetingMethodData[method] = true;
       }
     });
 
     data.adviceSelect.forEach((method) => {
-      console.log(method);
       if (helpTypeData.hasOwnProperty(method)) {
         helpTypeData[method] = true;
       }
@@ -180,7 +178,6 @@ app.post("/api/mentor/login", async (req, res, next) => {
 app.post("/api/search", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
     const student = await StudentModel.find({
       major: data.major,
       sector: data.sector,
@@ -195,7 +192,6 @@ app.post("/api/search", async (req, res, next) => {
 app.post("/api/search_name", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
     const student = await StudentModel.find({
       name: data.name,
     });
@@ -208,7 +204,6 @@ app.post("/api/search_name", async (req, res, next) => {
 app.post("/api/student_search", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
     const mentor = await MentorModel.find({
       major: data.major,
       sector: data.sector,
@@ -223,7 +218,6 @@ app.post("/api/student_search", async (req, res, next) => {
 app.post("/api/student_search_name", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
     const mentor = await MentorModel.find({
       name: data.name,
     });
@@ -237,7 +231,6 @@ app.post("/api/mentor/myprofile", async (req, res, next) => {
   try {
     const data = req.body;
     const mentor = await MentorModel.findOne({ _id: data.uid });
-    console.log("hi from server", mentor);
     res.json({ mentor });
   } catch (error) {
     return res.status(400).json({ message: "Mentor Profile not found." });
@@ -248,7 +241,6 @@ app.post("/api/student/myprofile", async (req, res, next) => {
   try {
     const data = req.body;
     const student = await StudentModel.findOne({ _id: data.uid });
-    console.log("hi from server", student);
     res.json({ student });
   } catch (error) {
     return res.status(400).json({ message: "Student Profile not found." });
@@ -258,11 +250,9 @@ app.post("/api/student/myprofile", async (req, res, next) => {
 app.post("/api/mentor/profile", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(makeTitleCase(nameFromSlug(data.name)));
     const mentor = await MentorModel.findOne({
       name: makeTitleCase(nameFromSlug(data.name)),
     });
-    console.log(mentor);
     res.json({ mentor });
   } catch (error) {
     return res.status(400).json({ message: "Mentor not found." });
@@ -284,7 +274,6 @@ app.post("/api/student/profile", async (req, res, next) => {
 app.post("/api/book/mentor/", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log("data", data);
     const mentor = await MentorModel.findOne({
       name: makeTitleCase(nameFromSlug(data.name)),
     });
@@ -297,11 +286,9 @@ app.post("/api/book/mentor/", async (req, res, next) => {
 app.post("/api/book/student/", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log("data", data);
     const student = await StudentModel.findOne({
       name: makeTitleCase(nameFromSlug(data.name)),
     });
-    console.log("student", student);
     res.json({ student });
   } catch (error) {
     return res.status(400).json({ message: "Student not found." });
