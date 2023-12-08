@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
+import path from "path";
 import connectDB from "./config/connectDB.js";
 import StudentModel from "./models/Student.js";
 import MentorModel from "./models/Mentor.js";
