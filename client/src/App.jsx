@@ -22,7 +22,7 @@ import Search_mentor from "./pages/Search/Search_mentor";
 import BookMentorMeeting from "./pages/BookMeeting/BookMentorMeeting";
 import BookStudentMeeting from "./pages/BookMeeting/BookStudentMeeting";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://eagleconnect-api.onrender.com";
 
 const LayOut = () => {
   return (
