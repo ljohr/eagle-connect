@@ -13,10 +13,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(express.json());
-app.use(express.static(join(__dirname, "client", "dist")));
+app.use(express.static(join(__dirname, "../client", "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "client", "index.html"));
+  res.sendFile(join(__dirname, "../client", "index.html"));
 });
 
 app.use(
