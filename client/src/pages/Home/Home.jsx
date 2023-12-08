@@ -34,35 +34,35 @@ const Info = () => {
 
 const KeyImage = () => {
   return (
-    <div class="image-container">
-      <div class="image-wrapper">
-        <div class="circle-box">
+    <div className="image-container">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/492701/supporting-business-person.svg"
             alt="Image 1"
           ></img>
         </div>
-        <p class="image-caption">Establish Connection</p>
+        <p className="image-caption">Establish Connection</p>
       </div>
 
-      <div class="image-wrapper">
-        <div class="circle-box">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/530239/schedule.svg"
             alt="Image 2"
           ></img>
         </div>
-        <p class="image-caption">Book Meeting with Scheduling Tool</p>
+        <p className="image-caption">Book Meeting with Scheduling Tool</p>
       </div>
 
-      <div class="image-wrapper">
-        <div class="circle-box">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/493366/meeting-person.svg"
             alt="Image 3"
           ></img>
         </div>
-        <p class="image-caption">Choose Your Preferred Meeting Type</p>
+        <p className="image-caption">Choose Your Preferred Meeting Type</p>
       </div>
 
       {/* <div class="image-wrapper">
@@ -82,52 +82,51 @@ const HowToJoinTitle = () => {
   return (
     <div className="how-to-join">
       <h3>Connect in 4 Steps</h3>
-      </div>
-  )
-}
-
+    </div>
+  );
+};
 
 const HowToJoin = () => {
   return (
-    <div class="image-container">
-      <div class="image-wrapper">
-        <div class="circle-box">
+    <div className="image-container">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/302839/sign-up-application.svg"
             alt="Image 1"
           ></img>
         </div>
-        <p class="image-caption">Sign Up</p>
+        <p className="image-caption">Sign Up</p>
       </div>
 
-      <div class="image-wrapper">
-        <div class="circle-box">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/302837/productive-person-thinking.svg"
             alt="Image 2"
           ></img>
         </div>
-        <p class="image-caption">Browse Profiles</p>
+        <p className="image-caption">Browse Profiles</p>
       </div>
 
-      <div class="image-wrapper">
-        <div class="circle-box">
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/302842/stay-active.svg"
             alt="Image 3"
           ></img>
         </div>
-        <p class="image-caption">Schedule Meetings</p>
+        <p className="image-caption">Schedule Meetings</p>
       </div>
-      
-      <div class="image-wrapper">
-        <div class="circle-box">
+
+      <div className="image-wrapper">
+        <div className="circle-box">
           <img
             src="https://www.svgrepo.com/show/302836/new-team-member.svg"
             alt="Image 4"
           ></img>
         </div>
-        <p class="image-caption">Meet Your Mentor</p>
+        <p className="image-caption">Meet Your Mentor</p>
       </div>
     </div>
   );
@@ -184,7 +183,7 @@ const Home = () => {
       <Hero />
       <Info />
       <KeyImage />
-      <HowToJoinTitle/>
+      <HowToJoinTitle />
       <HowToJoin />
     </main>
   );

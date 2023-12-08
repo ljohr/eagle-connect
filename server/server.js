@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://eagleconnect.onrender.com/",
   })
 );
 
@@ -197,7 +197,7 @@ app.post("/api/search_name", async (req, res, next) => {
     const data = req.body;
     console.log(data);
     const student = await StudentModel.find({
-      name: data.name
+      name: data.name,
     });
     res.json({ student });
   } catch (error) {
@@ -225,14 +225,13 @@ app.post("/api/student_search_name", async (req, res, next) => {
     const data = req.body;
     console.log(data);
     const mentor = await MentorModel.find({
-      name: data.name
+      name: data.name,
     });
     res.json({ mentor });
   } catch (error) {
     return res.status(400).json({ message: "User not found." });
   }
 });
-
 
 app.post("/api/mentor/myprofile", async (req, res, next) => {
   try {
