@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://eagleconnect.onrender.com/",
+    origin: "https://eagleconnect.onrender.com",
   })
 );
 
