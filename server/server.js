@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static(join(__dirname, "client", "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "client", "dist", "index.html"));
+  res.sendFile(join(__dirname, "client", "index.html"));
 });
 
 app.use(
