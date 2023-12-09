@@ -14,6 +14,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static(join(__dirname, "dist")));
+
 app.use(
   cors({
     credentials: true,
@@ -34,7 +36,6 @@ const makeTitleCase = (str) => {
   );
 };
 
-app.use(express.static(join(__dirname, "dist")));
 app.post("/api/student/register", async (req, res, next) => {
   try {
     const data = req.body;
@@ -301,8 +302,8 @@ app.post("/api/book/student/", async (req, res, next) => {
 });
 
 app.get("*", (req, res) => {
-  console.log(`Received request for: ${req.path}`);
-  res.sendFile(join(__dirname, "dist", "index.html"));
+  console.log("in get");
+  res.sendFile(join(__dirname, "dist/index.html"));
 });
 
 app.listen(PORT, () => {
