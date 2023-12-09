@@ -15,10 +15,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static(join(__dirname, "../client", "dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "../client", "index.html"));
-});
-
 app.use(
   cors({
     credentials: true,
@@ -302,6 +298,10 @@ app.post("/api/book/student/", async (req, res, next) => {
   } catch (error) {
     return res.status(400).json({ message: "Student not found." });
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(join(__dirname, "../client", "index.html"));
 });
 
 app.listen(PORT, () => {
