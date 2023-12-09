@@ -303,6 +303,9 @@ app.post("/api/book/student/", async (req, res, next) => {
 
 app.get("*", (req, res) => {
   console.log("in get");
+  console.log("Client dist path:", clientDistPath);
+  console.log("Trying to serve:", join(clientDistPath, "index.html"));
+
   res.sendFile(join(clientDistPath, "index.html"));
 });
 
