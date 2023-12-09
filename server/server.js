@@ -34,7 +34,7 @@ const makeTitleCase = (str) => {
   );
 };
 
-app.use("/", express.static(join(__dirname, "dist")));
+app.use(express.static(join(__dirname, "dist")));
 app.post("/api/student/register", async (req, res, next) => {
   try {
     const data = req.body;
