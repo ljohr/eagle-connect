@@ -301,6 +301,7 @@ app.post("/api/book/student/", async (req, res, next) => {
 });
 
 app.get("*", (req, res) => {
+  console.log("in get");
   res.sendFile(join(__dirname, "../client", "index.html"));
 });
 
