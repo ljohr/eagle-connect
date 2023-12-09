@@ -13,7 +13,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(express.json());
-app.use(express.static(join(__dirname, "dist")));
 
 app.use(
   cors({
@@ -35,6 +34,7 @@ const makeTitleCase = (str) => {
   );
 };
 
+app.use("/", express.static(join(__dirname, "dist")));
 app.post("/api/student/register", async (req, res, next) => {
   try {
     const data = req.body;
