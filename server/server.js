@@ -13,7 +13,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(express.json());
-app.use(express.static(join(__dirname, "../client", "dist")));
+const clientDistPath = join(__dirname, "../client/dist");
+app.use(express.static(clientDistPath));
 
 app.use(
   cors({
@@ -302,7 +303,7 @@ app.post("/api/book/student/", async (req, res, next) => {
 
 app.get("*", (req, res) => {
   console.log("in get");
-  res.sendFile(join(__dirname, "../client", "dist", "index.html"));
+  res.sendFile(join(clientDistPath, "index.html"));
 });
 
 app.listen(PORT, () => {
