@@ -301,6 +301,7 @@ app.post("/api/book/student/", async (req, res, next) => {
 });
 
 app.get("*", (req, res) => {
+  console.log(`Received request for: ${req.path}`);
   res.sendFile(join(__dirname, "dist", "index.html"));
 });
 
